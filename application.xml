@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<!-- NMML reference: https://gist.github.com/1763850 -->
+	
+	<compilerflag name="--macro" value="allowPackage('flash')"/>
+	<haxedef name="FLX_NO_DEBUG" unless="debug" />
+	<haxedef name="FLX_NO_SOUNDTRAY"/>
+	<haxedef name="FLX_RENDER_TILE"/>
+	
+	<haxedef name="fire"/>
+	
+	<set name="SWF_VERSION" value="12.5" />
+	<android target-sdk-version="16" />
+	
+	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
+	<meta title="GraveyardShift" package="com.Mint.GraveyardShift" version="1.0.0" company="MintPaw" />
+	
+	<!-- output -->
+	<app main="Main" file="GraveyardShift" path="bin" />
+	
+	<window background="#000000" fps="60" />
+	<window width="1280" height="720" vsync="false" unless="mobile" />
+	<window hardware="true" allow-shaders="true" require-shaders="true" orientation="landscape" antialiasing="0" if="cpp"/>
+	
+	<!-- classpath, haxe libs -->
+	<source path="src" />
+	<haxelib name="openfl" />
+	<haxelib name="flixel" />
+	<haxelib name="flixel-addons" />
+	<haxelib name="Actuate" />
+	
+	<!-- assets -->
+	<icon path="assets/openfl.svg" />
+	<assets path="assets/img" rename="img" />
+	<assets path="assets/map" rename="map" />
+	<assets path="assets/info" rename="info" />
+	<assets path="assets/sound" rename="sound" />
+	
+	<assets path="assets">
+		<font path="font/DEKAR.OTF" id="dekar" />
+		<font path="font/ARIAL.TTF" id="arial" />
+		<font path="font/ZOMBIE.TTF" id="zombie" />
+		<font path="font/IMPACT.TTF" id="impact" />
+	</assets>
+	
+	<!-- optimize output
+	<haxeflag name="-dce full" /> -->
+	
+</project>
