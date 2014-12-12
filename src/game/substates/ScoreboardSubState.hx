@@ -53,7 +53,7 @@ class ScoreboardSubState extends MintSubState
 		_labels = [];
 		_barTips = [];
 		
-		var b:FlxSprite = new FlxSprite(0, 0, "img/gui/backgroundScore.json");
+		var b:FlxSprite = new FlxSprite(0, 0, "img/gui/backgroundScore.png");
 		b.x = FlxG.width / 2 - b.width / 2;
 		b.y = FlxG.height / 2 - b.height / 2 + 100;
 		_container.add(b);
@@ -110,7 +110,7 @@ class ScoreboardSubState extends MintSubState
 		
 		if (_winner != null)
 		{
-			var banner:FlxSprite = new FlxSprite(0, 0, "img/gui/winningTextBox" + Std.string(_winner.modelNumber) + ".json");
+			var banner:FlxSprite = new FlxSprite(0, 0, "img/gui/winningTextBox" + Std.string(_winner.modelNumber) + ".png");
 			banner.x = FlxG.width / 2 - banner.width / 2;
 			banner.y = 50;
 			_container.add(banner);
