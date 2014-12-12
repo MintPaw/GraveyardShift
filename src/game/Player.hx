@@ -209,11 +209,11 @@ class Player extends FlxSprite
 		shield.animation.addByPrefix("destroy", "shieldDestroy_", 30, false);
 		shield.visible = false;
 		
-		halo = new FlxSprite(0, 0, "img/players/halo.json");
+		halo = new FlxSprite(0, 0, "img/players/halo.png");
 		halo.visible = false;
 		tweenHalo(null);
 		
-		//trail = new FlxTrail(this, "img/items.json");
+		//trail = new FlxTrail(this, "img/items.png");
 		//trail.visible = false;
 		//for (i in 0...trail.members.length) trail.members[i].alpha = 0;
 		
@@ -255,19 +255,19 @@ class Player extends FlxSprite
 		arrow = new FlxSpriteGroup();
 		arrow.centerOrigin();
 		
-		var a:FlxSprite = new FlxSprite(0, 0, "img/gui/playerTriangle" + modelNumber + ".json");
+		var a:FlxSprite = new FlxSprite(0, 0, "img/gui/playerTriangle" + modelNumber + ".png");
 		a.centerOrigin();
 		a.x = a.y = 0;
 		arrow.add(a);
 		
-		var t:FlxSprite = new FlxSprite(0, 0, "img/gui/p" + Std.string(playerNum + 1) + "Letters.json");
+		var t:FlxSprite = new FlxSprite(0, 0, "img/gui/p" + Std.string(playerNum + 1) + "Letters.png");
 		t.centerOrigin();
 		if (Reg.isSnowing) t.color = 0xFF000000;
 		t.x = 0;
 		t.y = a.y - t.height - 5;
 		arrow.add(t);
 		
-		circle = new FlxSprite(0, 0, "img/gui/playerCircle" + modelNumber + ".json");
+		circle = new FlxSprite(0, 0, "img/gui/playerCircle" + modelNumber + ".png");
 		circle.centerOrigin();
 		
 		killed = false;

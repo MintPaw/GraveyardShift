@@ -49,8 +49,8 @@ class Bullet extends FlxSpriteGroup
 		angle = player.muzzleFlash.angle;
 		facing = player.muzzleFlash.facing;
 		
-		if (playerThatShot.currentWeapon == Player.BLASTER) model.loadGraphic("img/bullets/bulletOrange.json");
-		if (playerThatShot.currentWeapon == Player.SHOTGUN) model.loadGraphic("img/bullets/bulletRed.json");
+		if (playerThatShot.currentWeapon == Player.BLASTER) model.loadGraphic("img/bullets/bulletOrange.png");
+		if (playerThatShot.currentWeapon == Player.SHOTGUN) model.loadGraphic("img/bullets/bulletRed.png");
 		if (playerThatShot.currentWeapon == Player.SMG)
 		{
 			model.frames = FlxAtlasFrames.fromTexturePackerJson("img/bullets/Green Bullet.png", "img/bullets/Green Bullet.json");
@@ -58,7 +58,7 @@ class Bullet extends FlxSpriteGroup
 			model.animation.play("default");
 		}
 		
-		if (playerThatShot.currentWeapon == Player.LASER) model.loadGraphic("img/bullets/bulletBlue_end.json");
+		if (playerThatShot.currentWeapon == Player.LASER) model.loadGraphic("img/bullets/bulletBlue_end.png");
 		
 		if (playerThatShot.currentWeapon == Player.STICKY)
 		{
