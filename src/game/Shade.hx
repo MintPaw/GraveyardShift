@@ -17,8 +17,8 @@ class Shade extends FlxSprite
 		
 		this.parent = parent;
 		
-		if (type == 0) loadGraphic("img/map/crateShading.json");
-		if (type == 1) loadGraphic("img/map/metalShading.json");
+		if (type == 0) loadGraphic("img/map/crateShading.png");
+		if (type == 1) loadGraphic("img/map/metalShading.png");
 	}
 	
 	override public function draw():Void 

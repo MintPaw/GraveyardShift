@@ -237,7 +237,7 @@ class GameState extends FlxState
 		
 		for (i in 0..._level.metalCrateList.length)
 		{
-			var c:FlxSprite = new FlxSprite(0, 0, "img/map/metal_crate.json");
+			var c:FlxSprite = new FlxSprite(0, 0, "img/map/metal_crate.png");
 			
 			c.x = _level.metalCrateList[i].x + (60 - c.width) / 2;
 			c.y = _level.metalCrateList[i].y + (100 - c.height) / 2;

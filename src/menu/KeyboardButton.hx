@@ -18,12 +18,12 @@ class KeyboardButton extends FlxSpriteGroup
 	{
 		super();
 		
-		var backing:FlxSprite = new FlxSprite(0, 0, "img/menu/key.json");
+		var backing:FlxSprite = new FlxSprite(0, 0, "img/menu/key.png");
 		add(backing);
 		
 		if (key == Keyboard.LEFT || key == Keyboard.RIGHT || key == Keyboard.UP || key == Keyboard.DOWN)
 		{
-			var arrow:FlxSprite = new FlxSprite(0, 0, "img/menu/arrow.json");
+			var arrow:FlxSprite = new FlxSprite(0, 0, "img/menu/arrow.png");
 			
 			arrow.x = width / 2 - arrow.width / 2;
 			arrow.y = height / 2 - arrow.height / 2;

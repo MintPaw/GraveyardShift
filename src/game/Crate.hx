@@ -12,7 +12,7 @@ class Crate extends FlxSprite
 	public var needToBreak:Bool = false;
 	public function new() 
 	{
-		super(0, 0, "img/map/crate.json");
+		super(0, 0, "img/map/crate.png");
 		
 		health = 80;
 	}

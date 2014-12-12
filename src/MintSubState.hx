@@ -80,7 +80,7 @@ class MintSubState extends FlxSubState
 		#end
 		
 		var prompt:FlxSprite = new FlxSprite();
-		prompt = new FlxSprite(0, 0, "img/menu/" +  controller + "Prompt" + n + promptSuffix + ".json");
+		prompt = new FlxSprite(0, 0, "img/menu/" +  controller + "Prompt" + n + promptSuffix + ".png");
 		prompt.x = FlxG.width - prompt.width - 20;
 		prompt.y = FlxG.height - prompt.height - 20;
 		prompt.scrollFactor.set();

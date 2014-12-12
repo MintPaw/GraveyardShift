@@ -13,12 +13,12 @@ class MapSelector extends FlxSprite
 	{
 		super();
 		
-		loadGraphic("img/menu/Map Previews/map1.json");
+		loadGraphic("img/menu/Map Previews/map1.png");
 	}
 	
 	public function changeMap(frame:Int):Void
 	{
-		loadGraphic("img/menu/Map Previews/map" + Std.string(frame + 1) + ".json");
+		loadGraphic("img/menu/Map Previews/map" + Std.string(frame + 1) + ".png");
 	}
 	
 }
