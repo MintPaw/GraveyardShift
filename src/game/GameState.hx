@@ -9,6 +9,7 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.math.FlxAngle;
@@ -123,7 +124,9 @@ class GameState extends FlxState
 		for (i in 0..._level.smallRockList.length)
 		{
 			var rock:FlxSprite = new FlxSprite();
-			rock.loadGraphicFromTexture(new TexturePackerData("img/map/GameAssets.json", "img/map/GameAssets.png"), true, "rock" + Math.round(Math.random() * 2 + 1) + ".png");
+			rock.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.json", "img/map/GameAssets.png")
+			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() * 2 + 1) + ".png"], 0, false)
+			rock.play("default")
 			rock.x = _level.smallRockList[i].x + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.width / 2;
 			rock.y = _level.smallRockList[i].y  + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.height / 2;
 			rock.scale.x = Math.random() > .5 ? -1 : 1;
@@ -137,7 +140,6 @@ class GameState extends FlxState
 		
 		for (i in 0..._level.largeRockList.length)
 		{
-			//var randomBump:FlxPoint = new FlxPoint(Reg.randMinMax( -Reg.LARGE_ROCK_JUMBLE, Reg.LARGE_ROCK_JUMBLE), Reg.randMinMax( -Reg.LARGE_ROCK_JUMBLE, Reg.LARGE_ROCK_JUMBLE));
 			var randomBump:FlxPoint = new FlxPoint();
 			
 			var rock:FlxSprite = new FlxSprite();
@@ -145,8 +147,6 @@ class GameState extends FlxState
 			rock.x = _level.largeRockList[i].x + randomBump.x - rock.width / 2;
 			rock.y = _level.largeRockList[i].y  + randomBump.y - rock.height / 2;
 			rock.scale.x = Math.random() > .5 ? -1 : 1;
-			//rock.offset.x = randomBump.x;
-			//rock.offset.y = randomBump.y;
 			rock.immovable = true;
 			_bigEntitiyGroup.add(rock);
 			_entitiyGroup.add(rock);
