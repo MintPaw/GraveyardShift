@@ -105,12 +105,12 @@ class MenuState extends FlxState
 		#else
 			if (FlxG.gamepads.getByID(0) != null) controller = "xbox" else controller = "pc";
 		#end
-		_prompt = new FlxSprite(0, 0, "img/menu/" +  controller + "Prompt1" + promptSuffix + ".json");
+		_prompt = new FlxSprite(0, 0, "img/menu/" +  controller + "Prompt1" + promptSuffix + ".png");
 		_prompt.x = FlxG.width - _prompt.width - 20;
 		_prompt.y = FlxG.height - _prompt.height - 20;
 		add(_prompt);
 		
-		_title = new FlxSprite(0, 0, "img/menu/gameTitle.json");
+		_title = new FlxSprite(0, 0, "img/menu/gameTitle.png");
 		_title.x = FlxG.width / 2 - _title.width / 2;
 		_title.y = FlxG.height / 2 - _title.height / 2 - 200;
 		add(_title);

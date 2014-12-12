@@ -205,7 +205,7 @@ class Level
 			if (sparkle.overlaps(waterGroup)) break;
 		}
 		
-		sparkle.loadGraphic(Assets.getBitmapData("img/map/Sparkle.json"), true, 4, 4);
+		sparkle.loadGraphic(Assets.getBitmapData("img/map/Sparkle.png"), true, 4, 4);
 		sparkle.animation.add("default", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], 6, false);
 		sparkle.animation.play("default");
 		sparkle.scrollFactor.set();
