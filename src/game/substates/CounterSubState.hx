@@ -1,7 +1,7 @@
 package game.substates;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.util.loaders.TexturePackerData;
+import flixel.graphics.frames.FlxAtlasFrames;
 
 /**
  * ...
@@ -25,7 +25,7 @@ class CounterSubState extends MintSubState
 		_bg.kill();
 		
 		_counter1 = new FlxSprite();
-		_counter1.loadGraphicFromTexture(new TexturePackerData("img/gui/Get Ready 1.json", "img/gui/Get Ready 1.png"));
+		_counter1.frames = FlxAtlasFrames.fromTexturePackerJson("img/gui/Get Ready 1.png", "img/gui/Get Ready 1.json");
 		_counter1.animation.addByPrefix("default", "getReadyPart1_", 60, false);
 		_counter1.animation.play("default");
 		_counter1.x = FlxG.width / 2 - _counter1.width / 2 + 50;
@@ -33,7 +33,7 @@ class CounterSubState extends MintSubState
 		add(_counter1);
 		
 		_counter2 = new FlxSprite();
-		_counter2.loadGraphicFromTexture(new TexturePackerData("img/gui/Get Ready 2.json", "img/gui/Get Ready 2.png"));
+		_counter2.frames = FlxAtlasFrames.fromTexturePackerJson("img/gui/Get Ready 2.png", "img/gui/Get Ready 2.json");
 		_counter2.animation.addByPrefix("default", "getReadyPart2_", 60, false);
 		_counter2.animation.play("default");
 		_counter2.x = FlxG.width / 2 - _counter2.width / 2 + 50;
@@ -46,11 +46,11 @@ class CounterSubState extends MintSubState
 		}
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
 		if (_counter2.animation.finished) close();
 		
-		super.update();
+		super.update(elapsed);
 	}
 	
 }

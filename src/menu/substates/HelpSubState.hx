@@ -1,7 +1,7 @@
 package menu.substates;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.util.loaders.TexturePackerData;
+import flixel.graphics.frames.FlxAtlasFrames;
 
 /**
  * ...
@@ -21,14 +21,14 @@ class HelpSubState extends MintSubState
 		super.create();
 		
 		_help = new FlxSprite();
-		_help.loadGraphicFromTexture(new TexturePackerData("img/menu/help.json", "img/menu/help.png"));
+		_help.frames = FlxAtlasFrames.fromTexturePackerJson("img/menu/help.png", "img/menu/help.json");
 		
 		#if fire
-		_help.animation.addByNames("default", [ "help0001_fire.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
+		_help.animation.addByNames("default", [ "help0001_fire.json", "help0002.json", "help0003.json", "help0004.json", "help0005.json"], 0, false);
 		#else if ouya
-		_help.animation.addByNames("default", [ "help0001_ouya.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
+		_help.animation.addByNames("default", [ "help0001_ouya.json", "help0002.json", "help0003.json", "help0004.json", "help0005.json"], 0, false);
 		#else if pc
-		_help.animation.addByNames("default", [ "help0001.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
+		_help.animation.addByNames("default", [ "help0001.json", "help0002.json", "help0003.json", "help0004.json", "help0005.json"], 0, false);
 		#end
 		_help.animation.play("default");
 		_help.x = FlxG.width / 2 - _help.width / 2;
@@ -38,9 +38,9 @@ class HelpSubState extends MintSubState
 		makePrompt(2);
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		if (goRight && _help.animation.frameIndex < _help.animation.curAnim.numFrames - 1) _help.animation.frameIndex++;
 		if (goLeft && _help.animation.frameIndex > 0) _help.animation.frameIndex--;

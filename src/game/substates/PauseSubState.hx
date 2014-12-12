@@ -57,7 +57,7 @@ class PauseSubState extends MintSubState
 		var lables:Array<String> = ["Resume", "Back to Main Menu"];
 		
 		var header:Header = new Header(_player != null ? "Player " + Std.string(_player.playerNum + 1) + " paused" : "Game paused", 600, 100, 40);
-		header.graphic.color = 0xFFBF002F;
+		header.spriteGraphic.color = 0xFFBF002F;
 		header.x = FlxG.width / 2 - header.width / 2;
 		header.y = FlxG.height / 2 - header.height / 2 - 100;
 		add(header);

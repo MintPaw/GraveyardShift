@@ -3,11 +3,11 @@ package game;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxPoint;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
-import flixel.util.loaders.TexturePackerData;
 
 /**
  * ...
@@ -49,20 +49,20 @@ class Bullet extends FlxSpriteGroup
 		angle = player.muzzleFlash.angle;
 		facing = player.muzzleFlash.facing;
 		
-		if (playerThatShot.currentWeapon == Player.BLASTER) model.loadGraphic("img/bullets/bulletOrange.png");
-		if (playerThatShot.currentWeapon == Player.SHOTGUN) model.loadGraphic("img/bullets/bulletRed.png");
+		if (playerThatShot.currentWeapon == Player.BLASTER) model.loadGraphic("img/bullets/bulletOrange.json");
+		if (playerThatShot.currentWeapon == Player.SHOTGUN) model.loadGraphic("img/bullets/bulletRed.json");
 		if (playerThatShot.currentWeapon == Player.SMG)
 		{
-			model.loadGraphicFromTexture(new TexturePackerData("img/bullets/Green Bullet.json", "img/bullets/Green Bullet.png"));
+			model.frames = FlxAtlasFrames.fromTexturePackerJson("img/bullets/Green Bullet.png", "img/bullets/Green Bullet.json");
 			model.animation.addByPrefix("default", "bulletGreen_");
 			model.animation.play("default");
 		}
 		
-		if (playerThatShot.currentWeapon == Player.LASER) model.loadGraphic("img/bullets/bulletBlue_end.png");
+		if (playerThatShot.currentWeapon == Player.LASER) model.loadGraphic("img/bullets/bulletBlue_end.json");
 		
 		if (playerThatShot.currentWeapon == Player.STICKY)
 		{
-			model.loadGraphicFromTexture(new TexturePackerData("img/bullets/Yellow Bullet.json", "img/bullets/Yellow Bullet.png"));
+			model.frames = FlxAtlasFrames.fromTexturePackerJson("img/bullets/Yellow Bullet.png", "img/bullets/Yellow Bullet.json");
 			model.animation.addByPrefix("default", "yellowBullet_activate");
 			model.animation.play("default");
 		}
@@ -77,7 +77,7 @@ class Bullet extends FlxSpriteGroup
 		new FlxTimer().start(10, function c(t:FlxTimer):Void { kill(); } );
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
 		noHit = false;
 		if (laser)
@@ -93,7 +93,7 @@ class Bullet extends FlxSpriteGroup
 		
 		_firstFrame = false;
 		
-		super.update();
+		super.update(elapsed);
 	}
 	
 	private function secondPassed(timer:FlxTimer):Void

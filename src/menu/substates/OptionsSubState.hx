@@ -68,7 +68,7 @@ class OptionsSubState extends MintSubState
 		
 		if (_settingKey != -1)
 		{
-			if (FlxG.keys.firstJustPressed() != "")
+			if (FlxG.keys.firstJustPressed() != FlxKey.NONE)
 			{
 				setKey(_settingKey, FlxG.keys.firstJustPressed());
 				_settingKey = -1;

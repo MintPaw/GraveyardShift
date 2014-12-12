@@ -1,8 +1,8 @@
 package menu;
 
 import flixel.FlxSprite;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.text.FlxText;
-import flixel.util.loaders.TexturePackerData;
 
 /**
  * ...
@@ -18,7 +18,7 @@ class MenuButton extends MenuItem
 		super();
 		
 		overButton = new FlxSprite();
-		overButton.loadGraphicFromTexture(new TexturePackerData("img/menu/Menu Button.json", "img/menu/Menu Button.png"));
+		overButton.frames = FlxAtlasFrames.fromTexturePackerJson("img/menu/Menu Button.png", "img/menu/Menu Button.json");
 		overButton.animation.addByPrefix("default", "selectionBar_PC");
 		overButton.animation.play("default", true);
 		overButton.visible = false;

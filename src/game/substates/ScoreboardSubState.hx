@@ -53,7 +53,7 @@ class ScoreboardSubState extends MintSubState
 		_labels = [];
 		_barTips = [];
 		
-		var b:FlxSprite = new FlxSprite(0, 0, "img/gui/backgroundScore.png");
+		var b:FlxSprite = new FlxSprite(0, 0, "img/gui/backgroundScore.json");
 		b.x = FlxG.width / 2 - b.width / 2;
 		b.y = FlxG.height / 2 - b.height / 2 + 100;
 		_container.add(b);
@@ -75,7 +75,7 @@ class ScoreboardSubState extends MintSubState
 			
 			var b:FlxBar = new FlxBar(0, 0, FlxBarFillDirection.BOTTOM_TO_TOP, 100, 400, null, "", 0, GameRules.pointsToWin + _barExtra);
 			b.createFilledBar(0, barColours[_players[i].modelNumber]);
-			b.currentValue = _players[i].score + _barExtra;
+			b.value = _players[i].score + _barExtra;
 			b.y = label.y - b.height - 50;
 			_container.add(b);
 			
@@ -100,7 +100,7 @@ class ScoreboardSubState extends MintSubState
 			
 			if (_players[i].score + _players[i].pointsToAdd < 0) _players[i].pointsToAdd = 0;
 			
-			FlxTween.tween(b, { currentValue: b.currentValue + _players[i].pointsToAdd }, .5, { startDelay: Reg.random.float(.75, 1.5), ease: FlxEase.elasticOut } );
+			FlxTween.tween(b, { value: b.value + _players[i].pointsToAdd }, .5, { startDelay: Reg.random.float(.75, 1.5), ease: FlxEase.elasticOut } );
 			
 			_players[i].score += _players[i].pointsToAdd;
 			_players[i].pointsToAdd = 0;
@@ -110,7 +110,7 @@ class ScoreboardSubState extends MintSubState
 		
 		if (_winner != null)
 		{
-			var banner:FlxSprite = new FlxSprite(0, 0, "img/gui/winningTextBox" + Std.string(_winner.modelNumber) + ".png");
+			var banner:FlxSprite = new FlxSprite(0, 0, "img/gui/winningTextBox" + Std.string(_winner.modelNumber) + ".json");
 			banner.x = FlxG.width / 2 - banner.width / 2;
 			banner.y = 50;
 			_container.add(banner);
@@ -132,9 +132,9 @@ class ScoreboardSubState extends MintSubState
 		if (_winner == null) makePrompt(3) else makePrompt(5);
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		if (_goToMenu || _goToModeSelect) return;
 		
@@ -184,12 +184,12 @@ class ScoreboardSubState extends MintSubState
 		
 		for (i in 0..._scores.length)
 		{
-			_scores[i].text = Std.string(Math.round((_bars[i].currentValue - _barExtra) * 10) / 10);
+			_scores[i].text = Std.string(Math.round((_bars[i].value - _barExtra) * 10) / 10);
 			_scores[i].x = _bars[i].x + _bars[i].width / 2 - _scores[i].textField.textWidth / 2;
-			_scores[i].y = _bars[i].y + _bars[i].height - (_bars[i].height * (_bars[i].currentValue / _bars[i]._max)) - 48;
+			_scores[i].y = _bars[i].y + _bars[i].height - (_bars[i].height * (_bars[i].value / _bars[i].max)) - 48;
 			
 			_barTips[i].x = _bars[i].x;
-			_barTips[i].y = _bars[i].y + _bars[i].height - (_bars[i].height * (_bars[i].currentValue / _bars[i]._max));// - _barTips[i].height;
+			_barTips[i].y = _bars[i].y + _bars[i].height - (_bars[i].height * (_bars[i].value / _bars[i].max));// - _barTips[i].height;
 			
 			_labels[i].x = i * (_labels[i].width + 300) + (FlxG.width - (_labels[i].fieldWidth + 300) * (_players.length - 1)) / 2 - _labels[0].fieldWidth / 2;
 			

@@ -80,7 +80,7 @@ class MintSubState extends FlxSubState
 		#end
 		
 		var prompt:FlxSprite = new FlxSprite();
-		prompt = new FlxSprite(0, 0, "img/menu/" +  controller + "Prompt" + n + promptSuffix + ".png");
+		prompt = new FlxSprite(0, 0, "img/menu/" +  controller + "Prompt" + n + promptSuffix + ".json");
 		prompt.x = FlxG.width - prompt.width - 20;
 		prompt.y = FlxG.height - prompt.height - 20;
 		prompt.scrollFactor.set();
@@ -93,18 +93,18 @@ class MintSubState extends FlxSubState
 		if (animationIn == SLIDE_IN)
 		{
 			_container.x = FlxG.width;
-			FlxTween.tween(_container, { x: 0 }, .5, { complete: endAnimation } );
+			FlxTween.tween(_container, { x: 0 }, .5, { onComplete: endAnimation } );
 		} else if (animationIn == CRASH_DOWN) {
 			_container.y = -FlxG.height;
-			FlxTween.tween(_container, { y: 0 }, .5, { ease: FlxEase.bounceOut, complete: endAnimation  } );
+			FlxTween.tween(_container, { y: 0 }, .5, { ease: FlxEase.bounceOut, onComplete: endAnimation  } );
 		}
 	}
 	
 	private function endAnimation(tween:FlxTween):Void { animatingIn = false; }
 	
-	override function tryUpdate():Void 
+	override function tryUpdate(elapsed:Float):Void 
 	{
-		super.tryUpdate();
+		super.tryUpdate(elapsed);
 		
 		if (subState != null)
 		{
@@ -115,9 +115,9 @@ class MintSubState extends FlxSubState
 		}
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		updateInput();
 	}
@@ -185,7 +185,7 @@ class MintSubState extends FlxSubState
 	{
 		animatingOut = true;
 		if (Std.is(_parentState, PlayerSelectSubState)) cast(_parentState, PlayerSelectSubState).resetSelf();
-		FlxTween.tween(_container, { x: FlxG.width }, .5, { complete: closeReal } );
+		FlxTween.tween(_container, { x: FlxG.width }, .5, { onComplete: closeReal } );
 	}
 	
 	private function closeReal(tween:FlxTween):Void

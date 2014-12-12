@@ -27,7 +27,7 @@ class Hud extends FlxSpriteGroup
 		var hudSpacing:Int = 95;
 		for (i in 0..._players.length)
 		{
-			var bg:FlxSprite = new FlxSprite(0, 0, "img/gui/" + _players[i].modelNumber + "UI.png");
+			var bg:FlxSprite = new FlxSprite(0, 0, "img/gui/" + _players[i].modelNumber + "UI.json");
 			bg.x = i * (bg.width + hudSpacing);
 			add(bg);
 			
@@ -50,9 +50,9 @@ class Hud extends FlxSpriteGroup
 		}
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		for (i in 0..._players.length)
 		{
@@ -68,13 +68,13 @@ class Hud extends FlxSpriteGroup
 					return;
 				}
 				
-				if (_players[i].storedPowerup.type == Powerup.SHIELD) _powerupImages[i].loadGraphic("img/gui/shieldIcon.png");
-				if (_players[i].storedPowerup.type == Powerup.BURST) _powerupImages[i].loadGraphic("img/gui/burstIcon.png");
-				if (_players[i].storedPowerup.type == Powerup.BEAST) _powerupImages[i].loadGraphic("img/gui/beastIcon.png");
-				if (_players[i].storedPowerup.type == Powerup.FLARE) _powerupImages[i].loadGraphic("img/gui/flareIcon.png");
-				if (_players[i].storedPowerup.type == Powerup.LOSE_ATTRACTION) _powerupImages[i].loadGraphic("img/gui/sightIcon.png");
-				if (_players[i].storedPowerup.type == Powerup.FLASH) _powerupImages[i].loadGraphic("img/gui/flashIcon.png");
-				if (_players[i].storedPowerup.type == Powerup.SPAWN) _powerupImages[i].loadGraphic("img/gui/increaseZombieIcon.png");
+				if (_players[i].storedPowerup.type == Powerup.SHIELD) _powerupImages[i].loadGraphic("img/gui/shieldIcon.json");
+				if (_players[i].storedPowerup.type == Powerup.BURST) _powerupImages[i].loadGraphic("img/gui/burstIcon.json");
+				if (_players[i].storedPowerup.type == Powerup.BEAST) _powerupImages[i].loadGraphic("img/gui/beastIcon.json");
+				if (_players[i].storedPowerup.type == Powerup.FLARE) _powerupImages[i].loadGraphic("img/gui/flareIcon.json");
+				if (_players[i].storedPowerup.type == Powerup.LOSE_ATTRACTION) _powerupImages[i].loadGraphic("img/gui/sightIcon.json");
+				if (_players[i].storedPowerup.type == Powerup.FLASH) _powerupImages[i].loadGraphic("img/gui/flashIcon.json");
+				if (_players[i].storedPowerup.type == Powerup.SPAWN) _powerupImages[i].loadGraphic("img/gui/increaseZombieIcon.json");
 			}
 			
 			_texts[i].text = "";

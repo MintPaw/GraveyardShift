@@ -2,13 +2,12 @@ package game;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.graphics.FlxGraphic;
 import flixel.group.FlxGroup;
 import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxTween;
 import flixel.math.FlxPoint;
 import flixel.util.FlxTimer;
-import flixel.util.loaders.CachedGraphics;
-import flixel.util.loaders.TextureRegion;
 import openfl.Assets;
 
 /**
@@ -49,22 +48,23 @@ class Level
 	{
 		parseDefs();
 		
-		var cached:CachedGraphics = FlxG.bitmap.add("img/map/Tilemap.png");
+		/*var cached:FlxGraphic = FlxG.bitmap.add("img/map/Tilemap.png");
 		#if ouya
-		cached = FlxG.bitmap.add("img/map/TilemapOuya.png");
+		cached = FlxG.bitmap.add("img/map/TilemapOuya.json");
 		#end
 		var startX:Int = Reg.tileSpacing;
-		var startY:Int = Reg.tileSpacing;
+		var startY:Int = Reg.tileSpacing;*/
 		var tileWidth:Int = 60;
-		var tileHeight:Int = 60;
+		var tileHeight:Int = 60;/*
 		var spacingX:Int = Reg.tileSpacing;
 		var spacingY:Int = Reg.tileSpacing;
 		var width:Int = cached.bitmap.width - startX;
 		var height:Int = cached.bitmap.height - startY;
-		var textureRegion:TextureRegion = new TextureRegion(cached, startX, startY, tileWidth, tileHeight, spacingX, spacingY, width, height);
+		var textureRegion:TextureRegion = new TextureRegion(cached, startX, startY, tileWidth, tileHeight, spacingX, spacingY, width, height);*/
 		
 		tilemap = new FlxTilemap();
-		tilemap.loadMap(midString, textureRegion, tileWidth, tileHeight);
+		tilemap.loadMapFromCSV(midString, "img/map/TilemapOuya.png", tileWidth, tileHeight);
+		//tilemap.loadMap(midString, textureRegion, tileWidth, tileHeight);
 		
 		var highestTile:Int = 0;
 		for (i in 0...tilemap.totalTiles)
@@ -111,7 +111,7 @@ class Level
 		
 		var tempTilemap:FlxTilemap = new FlxTilemap();
 		
-		tempTilemap.loadMap(botString, Assets.getBitmapData("img/map/Tilemap.png"), 60, 60);
+		tempTilemap.loadMapFromCSV(botString, Assets.getBitmapData("img/map/Tilemap.png"), 60, 60);
 		
 		var waterPoints:Array<FlxPoint> = tempTilemap.getTileCoords(_tiledefs[0][0], false);
 		
@@ -143,7 +143,7 @@ class Level
 	private function parseEntities():Void
 	{
 		var tempTilemap:FlxTilemap = new FlxTilemap();
-		tempTilemap.loadMap(topString, Assets.getBitmapData("img/map/Tilemap.png"), 60, 60);
+		tempTilemap.loadMapFromCSV(topString, Assets.getBitmapData("img/map/Tilemap.png"), 60, 60);
 		
 		largeRockList = tempTilemap.getTileCoords(_tiledefs[0][1]);
 		smallRockList = tempTilemap.getTileCoords(_tiledefs[0][2]);
@@ -164,8 +164,12 @@ class Level
 	
 	private function parseBulletmap():Void
 	{
-		var array:Array<Int> = [];
-		for (i in 0...Math.round(1920 / 60)) for (j in 0...Math.round(1080 / 60)) array.push(0);
+		var array:Array<Array<Int>> = [];
+		for (i in 0...Math.round(1920 / 60))
+		{
+			array[i] = [];
+			for (j in 0...Math.round(1080 / 60)) array[i].push(0);
+		}
 		
 		var validTiles:Array<Int> = [];
 		for (i in 0...199) validTiles.push(i);
@@ -173,9 +177,9 @@ class Level
 		validTiles[_tiledefs[0][0]] = -1;
 		
 		bulletTilemap = new FlxTilemap();
-		bulletTilemap.widthInTiles = Math.round(1920 / 60);
-		bulletTilemap.heightInTiles = Math.round(1080 / 60);
-		bulletTilemap.loadMap(array, Assets.getBitmapData("img/map/Tilemap.png"), 60, 60);
+		//bulletTilemap.widthInTiles = Math.round(1920 / 60);
+		//bulletTilemap.heightInTiles = Math.round(1080 / 60);
+		bulletTilemap.loadMapFrom2DArray(array, Assets.getBitmapData("img/map/Tilemap.png"), 60, 60);
 		
 		for (i in 0...tilemap.widthInTiles)
 		{
@@ -201,14 +205,14 @@ class Level
 			if (sparkle.overlaps(waterGroup)) break;
 		}
 		
-		sparkle.loadGraphic(Assets.getBitmapData("img/map/Sparkle.png"), true, 4, 4);
+		sparkle.loadGraphic(Assets.getBitmapData("img/map/Sparkle.json"), true, 4, 4);
 		sparkle.animation.add("default", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], 6, false);
 		sparkle.animation.play("default");
 		sparkle.scrollFactor.set();
 		sparkleGroup.add(sparkle);
 	}
 	
-	public function update():Void
+	public function update(elapsed:Float):Void
 	{
 		for (i in 0...sparkleGroup.members.length)
 		{

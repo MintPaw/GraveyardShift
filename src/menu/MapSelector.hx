@@ -2,7 +2,6 @@ package menu;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.util.loaders.TexturePackerData;
 
 /**
  * ...
@@ -14,12 +13,12 @@ class MapSelector extends FlxSprite
 	{
 		super();
 		
-		loadGraphic("img/menu/Map Previews/map1.png");
+		loadGraphic("img/menu/Map Previews/map1.json");
 	}
 	
 	public function changeMap(frame:Int):Void
 	{
-		loadGraphic("img/menu/Map Previews/map" + Std.string(frame + 1) + ".png");
+		loadGraphic("img/menu/Map Previews/map" + Std.string(frame + 1) + ".json");
 	}
 	
 }

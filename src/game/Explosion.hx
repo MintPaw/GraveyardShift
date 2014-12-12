@@ -2,8 +2,8 @@ package game;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.tweens.FlxTween;
-import flixel.util.loaders.TexturePackerData;
 
 /**
  * ...
@@ -17,14 +17,14 @@ class Explosion extends FlxSprite
 	public function new() 
 	{
 		super();
-		loadGraphicFromTexture(new TexturePackerData("img/bullets/explosion.json", "img/bullets/explosion.png"));
+		frames = FlxAtlasFrames.fromTexturePackerJson("img/bullets/explosion.png", "img/bullets/explosion.json");
 		animation.addByPrefix("default", "stickyExplosion", 30, false);
 		animation.play("default");
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		noHit = false;
 		

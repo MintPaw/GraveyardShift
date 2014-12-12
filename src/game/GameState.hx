@@ -22,7 +22,6 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import flixel.util.FlxTimer;
-import flixel.util.loaders.TexturePackerData;
 import game.substates.CounterSubState;
 import game.substates.PauseSubState;
 import game.substates.ScoreboardSubState;
@@ -124,9 +123,9 @@ class GameState extends FlxState
 		for (i in 0..._level.smallRockList.length)
 		{
 			var rock:FlxSprite = new FlxSprite();
-			rock.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.json", "img/map/GameAssets.png")
-			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() * 2 + 1) + ".png"], 0, false)
-			rock.play("default")
+			rock.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
+			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() * 2 + 1) + ".json"], 0, false);
+			rock.animation.play("default");
 			rock.x = _level.smallRockList[i].x + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.width / 2;
 			rock.y = _level.smallRockList[i].y  + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.height / 2;
 			rock.scale.x = Math.random() > .5 ? -1 : 1;
@@ -143,7 +142,10 @@ class GameState extends FlxState
 			var randomBump:FlxPoint = new FlxPoint();
 			
 			var rock:FlxSprite = new FlxSprite();
-			rock.loadGraphicFromTexture(new TexturePackerData("img/map/GameAssets.json", "img/map/GameAssets.png"), true, "rock" + Math.round(Math.random() + 4) + ".png");
+			rock.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
+			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() + 4) + ".json"], 0, false);
+			rock.animation.play("default");
+
 			rock.x = _level.largeRockList[i].x + randomBump.x - rock.width / 2;
 			rock.y = _level.largeRockList[i].y  + randomBump.y - rock.height / 2;
 			rock.scale.x = Math.random() > .5 ? -1 : 1;
@@ -157,12 +159,16 @@ class GameState extends FlxState
 		for (i in 0..._level.smallTreeList.length)
 		{
 			var tree:FlxSprite = new FlxSprite();
+			tree.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
+
 			if (_level.isSnow)
 			{
-				tree.loadGraphicFromTexture(new TexturePackerData("img/map/GameAssets.json", "img/map/GameAssets.png"), true, Reg.random.bool() ? "bush2.png" : "bushSnow.png");
+				tree.animation.addByNames("default", [Reg.random.bool() ? "bush2.json" : "bushSnow.json"], 0, false);
 			} else {
-				tree.loadGraphicFromTexture(new TexturePackerData("img/map/GameAssets.json", "img/map/GameAssets.png"), true, "bush" + Math.round(Math.random() + 1) + ".png");
+				tree.animation.addByNames("default", ["bush" + Math.round(Math.random() + 1) + ".json"], 0, false);
 			}
+
+			tree.animation.play("default");
 			tree.x = _level.smallTreeList[i].x + Reg.randMinMax( -Reg.SMALL_TREE_JUMBLE, Reg.SMALL_TREE_JUMBLE) - tree.width / 2;
 			tree.y = _level.smallTreeList[i].y  + Reg.randMinMax( -Reg.SMALL_TREE_JUMBLE, Reg.SMALL_TREE_JUMBLE) - tree.height / 2;
 			tree.scale.x = Math.random() > .5 ? -1 : 1;
@@ -178,12 +184,15 @@ class GameState extends FlxState
 		for (i in 0..._level.largeTreeList.length)
 		{
 			var tree:FlxSprite = new FlxSprite();
+			tree.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
+
 			if (_level.isSnow)
 			{
-				tree.loadGraphicFromTexture(new TexturePackerData("img/map/GameAssets.json", "img/map/GameAssets.png"), true, Reg.random.bool() ? "tree2.png" : "treeSnow.png");
+				tree.animation.addByNames("default", [Reg.random.bool() ? "tree2.json" : "treeSnow.json"], 0, false);
 			} else {
-				tree.loadGraphicFromTexture(new TexturePackerData("img/map/GameAssets.json", "img/map/GameAssets.png"), true, "tree" + Math.round(Math.random() + 1) + ".png");
+				tree.animation.addByNames("default", ["tree" + Math.round(Math.random() + 1) + ".json"], 0, false);
 			}
+
 			tree.x = _level.largeTreeList[i].x + Reg.randMinMax( -Reg.LARGE_TREE_JUMBLE, Reg.LARGE_TREE_JUMBLE) - tree.width / 2;
 			tree.y = _level.largeTreeList[i].y  + Reg.randMinMax( -Reg.LARGE_TREE_JUMBLE, Reg.LARGE_TREE_JUMBLE) - tree.height / 2;
 			tree.scale.x = Math.random() > .5 ? -1 : 1;
@@ -228,7 +237,7 @@ class GameState extends FlxState
 		
 		for (i in 0..._level.metalCrateList.length)
 		{
-			var c:FlxSprite = new FlxSprite(0, 0, "img/map/metal_crate.png");
+			var c:FlxSprite = new FlxSprite(0, 0, "img/map/metal_crate.json");
 			
 			c.x = _level.metalCrateList[i].x + (60 - c.width) / 2;
 			c.y = _level.metalCrateList[i].y + (100 - c.height) / 2;
@@ -267,7 +276,7 @@ class GameState extends FlxState
 			_playerGroup.add(p);
 			_container.add(p.shield);
 			_container.add(p.halo);
-			add(p.trail);
+			//add(p.trail);
 			add(p.hitBox);
 			_dynamicGroup.add(p);
 		}
@@ -391,7 +400,7 @@ class GameState extends FlxState
 		{
 			_playerGroup.members[i].reset(_playerGroup.members[i].spawnPoint.x - _playerGroup.members[i].width / 2, _playerGroup.members[i].spawnPoint.y - _playerGroup.members[i].height / 2);
 			_playerGroup.members[i].setValues();
-			_playerGroup.members[i].trail.visible = false;
+			//_playerGroup.members[i].trail.visible = false;
 		}
 		
 		while (_zombieGroup.countLiving() < Reg.MIN_ZOMBIES[Reg.levelNumber])
@@ -401,35 +410,35 @@ class GameState extends FlxState
 		
 		Reg.debugBox.text = "";
 		
-		update();
+		update(FlxG.elapsed);
 		setupCrates();
 		showCounter();
 	}
 	
-	override private function tryUpdate():Void 
+	override private function tryUpdate(elapsed:Float):Void 
 	{
-		super.tryUpdate();
+		super.tryUpdate(elapsed);
 		
 		if (subState != null)
 		{
 			for (i in 0..._zombieGroup.members.length)
 			{
-				if (_zombieGroup.members[i].visible && _zombieGroup.members[i].animation.curAnim.name == Zombie.RISING) _zombieGroup.members[i].update();
+				if (_zombieGroup.members[i].visible && _zombieGroup.members[i].animation.curAnim.name == Zombie.RISING) _zombieGroup.members[i].update(elapsed);
 			}
 			for (i in 0...members.length)
 			{
-				if (Std.is(members[i], FlxSprite) && cast(members[i], FlxSprite).width == 75) members[i].update();
+				if (Std.is(members[i], FlxSprite) && cast(members[i], FlxSprite).width == 75) members[i].update(elapsed);
 			}
 		}
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		if (needToReset) resetLevel();
 		
-		if (_level != null) _level.update();
+		if (_level != null) _level.update(elapsed);
 		updateDepth();
 		updateGlobalKeys();
 		updatePlayers();
@@ -499,7 +508,7 @@ class GameState extends FlxState
 				_playerGroup.members[i].needPowerupEffect = false;
 				
 				var ring:FlxSprite = new FlxSprite();
-				ring.loadGraphicFromTexture(new TexturePackerData("img/players/Powerup ring.json", "img/players/Powerup ring.png"));
+				ring.frames = FlxAtlasFrames.fromTexturePackerJson("img/players/Powerup ring.png", "img/players/Powerup ring.json");
 				ring.animation.addByPrefix("default", "ringActivate_" + _playerGroup.members[i].modelNumber + "_", 30, false);
 				ring.animation.play("default");
 				ring.x = _playerGroup.members[i].getGraphicMidpoint().x - ring.width / 2;
@@ -630,7 +639,7 @@ class GameState extends FlxState
 			{
 				_woodCrateGroup.members[i].needToBreak = false;
 				var c:FlxSprite = new FlxSprite();
-				c.loadGraphicFromTexture(new TexturePackerData("img/map/Crate Break.json", "img/map/Crate Break.png"));
+				c.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/Crate Break.png", "img/map/Crate Break.json");
 				c.animation.addByPrefix("default", "crate_break", 60, false);
 				c.animation.play("default");
 				c.x = _woodCrateGroup.members[i].x + _woodCrateGroup.members[i].width - c.width / 2 - 18;
@@ -1058,7 +1067,7 @@ class GameState extends FlxState
 		}
 		
 		var t:FlxSprite = new FlxSprite();
-		t.loadGraphicFromTexture(new TexturePackerData("img/Tombstone.json", "img/Tombstone.png"));
+		t.frames = FlxAtlasFrames.fromTexturePackerJson("img/Tombstone.png", "img/Tombstone.json");
 		if (Reg.isSnowing) t.animation.addByPrefix("default", "tombstone_snow", 60, false) else t.animation.addByPrefix("default", "tombStone_dirt", 60, false);
 		t.animation.play("default");
 		t.x = player.x;
@@ -1067,7 +1076,7 @@ class GameState extends FlxState
 		_container.add(t);
 		
 		var s:FlxSprite = new FlxSprite();
-		s.loadGraphicFromTexture(new TexturePackerData("img/skull.json", "img/skull.png"));
+		s.frames = FlxAtlasFrames.fromTexturePackerJson("img/skull.png", "img/skull.json");
 		s.animation.addByPrefix("default", "skull_" + player.modelNumber + "_", 30, false);
 		s.animation.play("default");
 		s.x = t.x + t.width / 2 - s.width / 2;

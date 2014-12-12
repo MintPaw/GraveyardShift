@@ -12,7 +12,7 @@ import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRandom;
 import flixel.util.FlxColor;
-import flixel.util.loaders.TexturePackerData;
+import flixel.graphics.frames.FlxAtlasFrames;
 import game.Level;
 import game.Zombie;
 import input.InputLayout;
@@ -105,12 +105,12 @@ class MenuState extends FlxState
 		#else
 			if (FlxG.gamepads.getByID(0) != null) controller = "xbox" else controller = "pc";
 		#end
-		_prompt = new FlxSprite(0, 0, "img/menu/" +  controller + "Prompt1" + promptSuffix + ".png");
+		_prompt = new FlxSprite(0, 0, "img/menu/" +  controller + "Prompt1" + promptSuffix + ".json");
 		_prompt.x = FlxG.width - _prompt.width - 20;
 		_prompt.y = FlxG.height - _prompt.height - 20;
 		add(_prompt);
 		
-		_title = new FlxSprite(0, 0, "img/menu/gameTitle.png");
+		_title = new FlxSprite(0, 0, "img/menu/gameTitle.json");
 		_title.x = FlxG.width / 2 - _title.width / 2;
 		_title.y = FlxG.height / 2 - _title.height / 2 - 200;
 		add(_title);
@@ -136,7 +136,9 @@ class MenuState extends FlxState
 		for (i in 0..._level.smallRockList.length)
 		{
 			var rock:FlxSprite = new FlxSprite();
-			rock.loadGraphicFromTexture(new TexturePackerData("img/map/GameAssets.json", "img/map/GameAssets.png"), true, "rock" + Math.round(Math.random() * 2 + 1) + ".png");
+			rock.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
+			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() * 2 + 1) + ".json"], 0, false);
+			rock.animation.play("default");
 			rock.x = _level.smallRockList[i].x + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.width / 2;
 			rock.y = _level.smallRockList[i].y  + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.height / 2;
 			rock.scale.x = Math.random() > .5 ? -1 : 1;
@@ -150,7 +152,9 @@ class MenuState extends FlxState
 		for (i in 0..._level.largeRockList.length)
 		{
 			var rock:FlxSprite = new FlxSprite();
-			rock.loadGraphicFromTexture(new TexturePackerData("img/map/GameAssets.json", "img/map/GameAssets.png"), true, "rock" + Math.round(Math.random() + 4) + ".png");
+			rock.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
+			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() + 4) + ".json"], 0, false);
+			rock.animation.play("default");
 			rock.x = _level.largeRockList[i].x + Reg.randMinMax( -Reg.LARGE_ROCK_JUMBLE, Reg.LARGE_ROCK_JUMBLE) - rock.width / 2;
 			rock.y = _level.largeRockList[i].y  + Reg.randMinMax( -Reg.LARGE_ROCK_JUMBLE, Reg.LARGE_ROCK_JUMBLE) - rock.height / 2;
 			rock.scale.x = Math.random() > .5 ? -1 : 1;
@@ -165,9 +169,9 @@ class MenuState extends FlxState
 		for (i in 0..._level.smallTreeList.length)
 		{
 			var tree:FlxSprite = new FlxSprite();
-			tree.loadGraphicFromTexture(new TexturePackerData("img/map/GameAssets.json", "img/map/GameAssets.png"), true, "bush" + Math.round(Math.random() + 1) + ".png");
-			tree.x = _level.smallTreeList[i].x + Reg.randMinMax( -Reg.SMALL_TREE_JUMBLE, Reg.SMALL_TREE_JUMBLE) - tree.width / 2;
-			tree.y = _level.smallTreeList[i].y  + Reg.randMinMax( -Reg.SMALL_TREE_JUMBLE, Reg.SMALL_TREE_JUMBLE) - tree.height / 2;
+			tree.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
+			tree.animation.addByNames("default", ["bush" + Math.round(Math.random() + 1) + ".json"], 0, false);
+			tree.animation.play("default");
 			tree.scale.x = Math.random() > .5 ? -1 : 1;
 			tree.offset.y = tree.height - (tree.height * .2) * 2;
 			tree.height *= .2;
@@ -180,7 +184,8 @@ class MenuState extends FlxState
 		for (i in 0..._level.largeTreeList.length)
 		{
 			var tree:FlxSprite = new FlxSprite();
-			tree.loadGraphicFromTexture(new TexturePackerData("img/map/GameAssets.json", "img/map/GameAssets.png"), true, "tree" + Math.round(Math.random() + 1) + ".png");
+			tree.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
+			tree.animation.addByNames("default", ["tree" + Math.round(Math.random() + 1) + ".json"], 0, false);
 			tree.x = _level.largeTreeList[i].x + Reg.randMinMax( -Reg.LARGE_TREE_JUMBLE, Reg.LARGE_TREE_JUMBLE) - tree.width / 2;
 			tree.y = _level.largeTreeList[i].y  + Reg.randMinMax( -Reg.LARGE_TREE_JUMBLE, Reg.LARGE_TREE_JUMBLE) - tree.height / 2;
 			tree.scale.x = Math.random() > .5 ? -1 : 1;
@@ -299,9 +304,9 @@ class MenuState extends FlxState
 		_selected = index;
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		if (_firstTime)
 		{

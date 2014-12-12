@@ -83,9 +83,9 @@ class MainState extends FlxState
 		}
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 	}
 	
 }

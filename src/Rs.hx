@@ -1,7 +1,6 @@
 package ;
 import flixel.math.FlxRandom;
 import flixel.tile.FlxTilemap;
-import flixel.util.loaders.TexturePackerData;
 import game.Level;
 import openfl.Assets;
 

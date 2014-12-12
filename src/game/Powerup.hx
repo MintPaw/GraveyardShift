@@ -1,10 +1,10 @@
 package game;
 
 import flixel.FlxSprite;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxRandom;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.util.FlxTimer;
-import flixel.util.loaders.TexturePackerData;
 
 /**
  * ...
@@ -46,7 +46,7 @@ class Powerup extends FlxSprite
 			type = Reg.random.getObject(GameRules.powerupTypes, 0, GameRules.powerupTypes.length - 1);
 		}
 		
-		loadGraphicFromTexture(new TexturePackerData("img/items.json", "img/items.png"));
+		frames = FlxAtlasFrames.fromTexturePackerJson("img/items.png", "img/items.json");
 		animation.addByPrefix("blaster", "orangeAmmoBox_", 30, false);
 		animation.addByPrefix("SMG", "GreenAmmoBox_", 30, false);
 		animation.addByPrefix("shotgun", "redAmmoBox_", 30, false);
@@ -77,9 +77,9 @@ class Powerup extends FlxSprite
 		_shineTimer.start(3, shine, 0);
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		if (animation.finished) animation.pause();
 	}

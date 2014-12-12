@@ -3,6 +3,7 @@ package game;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxVelocity;
 import flixel.tweens.FlxTween;
@@ -11,7 +12,6 @@ import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import flixel.util.loaders.TexturePackerData;
 
 /**
  * ...
@@ -51,7 +51,7 @@ class Zombie extends FlxSprite
 	{
 		super();
 		
-		loadGraphicFromTexture(new TexturePackerData("img/Zombie.json", "img/Zombie.png"));
+		frames = FlxAtlasFrames.fromTexturePackerJson("img/Zombie.png", "img/Zombie.json");
 		
 		var risingSuffix:String = Reg.isSnowing ? "_snow" : "_dirt";
 		
@@ -111,9 +111,9 @@ class Zombie extends FlxSprite
 		animation.play(RISING);
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		if (!visible) return;
 		
@@ -126,7 +126,7 @@ class Zombie extends FlxSprite
 		if (killed) return;
 		updateHealthBar();
 		updateChasing();
-		updateAnimation();
+		updateAnim(elapsed);
 	}
 	
 	private function updateHealthBar():Void
@@ -149,7 +149,7 @@ class Zombie extends FlxSprite
 		}
 	}
 	
-	private function updateAnimation():Void
+	private function updateAnim(elapsed:Float):Void
 	{
 		if (attacking && animation.curAnim.name == ATTACKING && animation.finished)
 		{
@@ -225,7 +225,7 @@ class Zombie extends FlxSprite
 		needToCheckLineOfSight = false;
 		Stats.zombieKills++;
 		
-		FlxTween.tween(this, { alpha: 0 }, 1, { complete: timerKill, startDelay: 30 } );
+		FlxTween.tween(this, { alpha: 0 }, 1, { onComplete: timerKill, startDelay: 30 } );
 		
 		maxVelocity.set(Reg.PLAYER_MAX_VELOCITY, Reg.PLAYER_MAX_VELOCITY);
 		drag.set(maxVelocity.x * 2, maxVelocity.y * 2);

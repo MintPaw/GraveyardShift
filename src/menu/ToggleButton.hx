@@ -2,7 +2,6 @@ package menu;
 
 import flixel.FlxSprite;
 import flixel.text.FlxText;
-import flixel.util.loaders.TexturePackerData;
 
 /**
  * ...

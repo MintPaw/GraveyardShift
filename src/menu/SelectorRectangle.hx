@@ -25,9 +25,9 @@ class SelectorRectangle extends FlxSprite
 		origin.set();
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		setGraphicSize(Math.round(graphicalWidth), Math.round(graphicalHeight));
 	}

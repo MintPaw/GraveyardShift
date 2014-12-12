@@ -2,8 +2,8 @@ package game;
 
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.FlxTimer;
-import flixel.util.loaders.TexturePackerData;
 
 /**
  * ...
@@ -17,7 +17,7 @@ class Flare extends FlxSprite
 	{
 		super();
 		
-		loadGraphicFromTexture(new TexturePackerData("img/powerups/flare.json", "img/powerups/flare.png"));
+		frames = FlxAtlasFrames.fromTexturePackerJson("img/powerups/flare.png", "img/powerups/flare.json");
 		animation.addByPrefix("default", "flareDrop");
 		animation.play("default");
 		

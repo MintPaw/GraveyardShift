@@ -1,9 +1,9 @@
 package game;
-import flixel.addons.effects.FlxTrail;
 import flixel.animation.FlxAnimation;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup;
 import flixel.group.FlxSpriteGroup;
 import flixel.input.FlxInput.FlxInputState;
@@ -14,7 +14,6 @@ import flixel.ui.FlxBar;
 import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import flixel.util.loaders.TexturePackerData;
 import game.Powerup;
 import input.InputLayout;
 import input.InputManager;
@@ -159,7 +158,7 @@ class Player extends FlxSprite
 	public var circle:FlxSprite;
 	public var shield:FlxSprite;
 	public var halo:FlxSprite;
-	public var trail:FlxTrail;
+	//public var trail:FlxTrail;
 	public var lastPlayerToHit:Player;	
 	
 	public var killed:Bool = false;
@@ -185,7 +184,7 @@ class Player extends FlxSprite
 		setupAnimations(); //---------------
 		
 		muzzleFlash = new FlxSprite();
-		muzzleFlash.loadGraphicFromTexture(new TexturePackerData("img/players/Muzzle Flashes.json", "img/players/Muzzle Flashes.png"));
+		muzzleFlash.frames = FlxAtlasFrames.fromTexturePackerJson("img/players/Muzzle Flashes.png", "img/players/Muzzle Flashes.json");
 		muzzleFlash.animation.addByPrefix(BLASTER, "muzzleFlash_blaster", 30, false);
 		muzzleFlash.animation.addByPrefix(SMG, "muzzleFlash_SMG", 30, false);
 		muzzleFlash.animation.addByPrefix(SHOTGUN, "muzzleFlash_shotgun", 30, false);
@@ -204,19 +203,19 @@ class Player extends FlxSprite
 		healthBar.visible = false;
 		
 		shield = new FlxSprite();
-		shield.loadGraphicFromTexture(new TexturePackerData("img/powerups/Shield.json", "img/powerups/Shield.png"));
+		shield.frames = FlxAtlasFrames.fromTexturePackerJson("img/powerups/Shield.png", "img/powerups/Shield.json");
 		shield.animation.addByPrefix("activate", "shieldActivate_", 30, false);
 		shield.animation.addByPrefix("shield", "shield_");
 		shield.animation.addByPrefix("destroy", "shieldDestroy_", 30, false);
 		shield.visible = false;
 		
-		halo = new FlxSprite(0, 0, "img/players/halo.png");
+		halo = new FlxSprite(0, 0, "img/players/halo.json");
 		halo.visible = false;
 		tweenHalo(null);
 		
-		trail = new FlxTrail(this, "img/items.png");
-		trail.visible = false;
-		for (i in 0...trail.members.length) trail.members[i].alpha = 0;
+		//trail = new FlxTrail(this, "img/items.json");
+		//trail.visible = false;
+		//for (i in 0...trail.members.length) trail.members[i].alpha = 0;
 		
 		_dashRecoveryTime = GameRules.getDashRecovery();
 		
@@ -256,33 +255,33 @@ class Player extends FlxSprite
 		arrow = new FlxSpriteGroup();
 		arrow.centerOrigin();
 		
-		var a:FlxSprite = new FlxSprite(0, 0, "img/gui/playerTriangle" + modelNumber + ".png");
+		var a:FlxSprite = new FlxSprite(0, 0, "img/gui/playerTriangle" + modelNumber + ".json");
 		a.centerOrigin();
 		a.x = a.y = 0;
 		arrow.add(a);
 		
-		var t:FlxSprite = new FlxSprite(0, 0, "img/gui/p" + Std.string(playerNum + 1) + "Letters.png");
+		var t:FlxSprite = new FlxSprite(0, 0, "img/gui/p" + Std.string(playerNum + 1) + "Letters.json");
 		t.centerOrigin();
 		if (Reg.isSnowing) t.color = 0xFF000000;
 		t.x = 0;
 		t.y = a.y - t.height - 5;
 		arrow.add(t);
 		
-		circle = new FlxSprite(0, 0, "img/gui/playerCircle" + modelNumber + ".png");
+		circle = new FlxSprite(0, 0, "img/gui/playerCircle" + modelNumber + ".json");
 		circle.centerOrigin();
 		
 		killed = false;
 		_guiSetup = false;
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		setupSelfGui();
 		updateInput();
 		updateMovement();
-		updateAnimation();
+		updateAnim(elapsed);
 		updateShooting();
 		updateHealthBar();
 		updateShield();
@@ -402,7 +401,7 @@ class Player extends FlxSprite
 		_dashDelay -= FlxG.elapsed;
 	}
 	
-	private function updateAnimation():Void
+	private function updateAnim(elapsed:Float):Void
 	{
 		//if (trail.visible) trail.changeGraphic(getFlxFrameBitmapData());
 		
@@ -722,7 +721,7 @@ class Player extends FlxSprite
 		if (directionFacing == Player.DOWN_LEFT) velo.set( -dashSpeed, dashSpeed);
 		if (directionFacing == Player.DOWN_RIGHT) velo.set( dashSpeed, dashSpeed);
 		
-		trail.visible = true;
+		/*trail.visible = true;
 		trail.changeGraphic(getFlxFrameBitmapData());
 		
 		FlxTween.tween(velocity, { x: velo.x, y: velo.y }, .3);
@@ -735,7 +734,7 @@ class Player extends FlxSprite
 				FlxTween.tween(trail.members[i], { alpha: 1 - i * .1 }, .3);
 				FlxTween.tween(trail.members[i], { alpha: 0 }, .3 , { startDelay: .3, complete: function c(t:FlxTween):Void { trail.visible = false; } } );
 			}
-		}
+		}*/
 		
 		_dashDelay = _dashRecoveryTime;
 	}
@@ -800,7 +799,7 @@ class Player extends FlxSprite
 		
 		super.kill();
 		
-		FlxTween.tween(this, { alpha: 0 }, .25, { complete: killReal });
+		FlxTween.tween(this, { alpha: 0 }, .25, { onComplete: killReal });
 	}
 	
 	private function reviveSelf(timer:FlxTimer):Void
@@ -874,19 +873,19 @@ class Player extends FlxSprite
 		var animPrefix:String = "";
 		if (modelNumber == 0)
 		{
-			loadGraphicFromTexture(new TexturePackerData("img/players/Blue Player.json", "img/players/Blue Player.png"));
+			frames = FlxAtlasFrames.fromTexturePackerJson("img/players/Blue Player.png", "img/players/Blue Player.json");
 			animPrefix = "player_blue_";
 		} else if (modelNumber == 1) {
-			loadGraphicFromTexture(new TexturePackerData("img/players/Red Player.json", "img/players/Red Player.png"));
+			frames = FlxAtlasFrames.fromTexturePackerJson("img/players/Red Player.png", "img/players/Red Player.json");
 			animPrefix = "player_red_";
 		} else if (modelNumber == 2) {
-			loadGraphicFromTexture(new TexturePackerData("img/players/Green Player.json", "img/players/Green Player.png"));
+			frames = FlxAtlasFrames.fromTexturePackerJson("img/players/Green Player.png", "img/players/Green Player.json");
 			animPrefix = "player_green_";
 		} else if (modelNumber == 3) {
-			loadGraphicFromTexture(new TexturePackerData("img/players/Orange Player.json", "img/players/Orange Player.png"));
+			frames = FlxAtlasFrames.fromTexturePackerJson("img/players/Orange Player.png", "img/players/Orange Player.json");
 			animPrefix = "player_orange_";
 		} else if (modelNumber == 4) {
-			loadGraphicFromTexture(new TexturePackerData("img/players/Purple Player.json", "img/players/Purple Player.png"));
+			frames = FlxAtlasFrames.fromTexturePackerJson("img/players/Purple Player.png", "img/players/Purple Player.json");
 			animPrefix = "player_purple_";
 		}
 		
@@ -959,25 +958,25 @@ class Player extends FlxSprite
 	private function turnOnBeast():Void
 	{
 		isBeast = true;
-		for (i in 0...trail.members.length) FlxTween.tween(trail.members[i], { alpha: 1 - i * .1 }, .3);
+		/*for (i in 0...trail.members.length) FlxTween.tween(trail.members[i], { alpha: 1 - i * .1 }, .3);
 		_beastTimer.start(10, turnOffBeast);
-		color = 0xFFFF3333;
+		color = 0xFFFF3333;*/
 		
 		maxVelocity.set(_beastMaxVelo * GameRules.getPlayerSpeed(), _beastMaxVelo * GameRules.getPlayerSpeed());
 	}
 	
 	private function turnOffBeast(timer:FlxTimer = null):Void
 	{
-		isBeast = false;
+		/*isBeast = false;
 		for (i in 0...trail.members.length) FlxTween.tween(trail.members[i], { alpha: 0 }, .3 , { startDelay: .3, complete: function c(t:FlxTween):Void { trail.visible = false; } } );
-		color = 0xFFFFFFFF;
+		color = 0xFFFFFFFF;*/
 		
 		maxVelocity.set(_defaultMaxVelo * GameRules.getPlayerSpeed(), _defaultMaxVelo * GameRules.getPlayerSpeed());
 	}
 	
 	private function tweenHalo(tween:FlxTween):Void
 	{
-		FlxTween.tween(halo, { x: x + width / 2 - halo.width / 2 + Reg.random.float(0, 10), y: y - _graphicHeight - halo.height / 2}, Reg.random.float(.05, .1), { complete: tweenHalo } );
+		FlxTween.tween(halo, { x: x + width / 2 - halo.width / 2 + Reg.random.float(0, 10), y: y - _graphicHeight - halo.height / 2}, Reg.random.float(.05, .1), { onComplete: tweenHalo } );
 	}
 	
 	public function removeShield():Void

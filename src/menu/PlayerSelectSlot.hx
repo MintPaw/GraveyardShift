@@ -11,7 +11,7 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
-import flixel.util.loaders.TexturePackerData;
+import flixel.graphics.frames.FlxAtlasFrames;
 import input.InputLayout;
 import input.InputManager;
 import openfl.Assets;
@@ -48,21 +48,21 @@ class PlayerSelectSlot extends FlxSpriteGroup
 	{
 		super();
 		
-		_background = new FlxSprite(0, 0, "img/menu/grey_join.png");
+		_background = new FlxSprite(0, 0, "img/menu/grey_join.json");
 		add(_background);
 		
 		#if ouya
-		_joinConsoleKey = new FlxSprite(0, 0, "img/menu/ouya_toJoin.png");
+		_joinConsoleKey = new FlxSprite(0, 0, "img/menu/ouya_toJoin.json");
 		_joinConsoleKey.x = width / 2 - _joinConsoleKey.width / 2;
 		_joinConsoleKey.y = height / 2 - _joinConsoleKey.height / 2;
 		add(_joinConsoleKey);
 		#elseif fire
-		_joinConsoleKey = new FlxSprite(0, 0, "img/menu/fire_toJoin.png");
+		_joinConsoleKey = new FlxSprite(0, 0, "img/menu/fire_toJoin.json");
 		_joinConsoleKey.x = width / 2 - _joinConsoleKey.width / 2;
 		_joinConsoleKey.y = height / 2 - _joinConsoleKey.height / 2;
 		add(_joinConsoleKey);
 		#elseif pc
-		_joinConsoleKey = new FlxSprite(0, 0, "img/menu/xbox_a_button.png");
+		_joinConsoleKey = new FlxSprite(0, 0, "img/menu/xbox_a_button.json");
 		_joinConsoleKey.x = width / 2 - 60 - _joinConsoleKey.width / 2;
 		_joinConsoleKey.y = height / 2 - _joinConsoleKey.height / 2;
 		add(_joinConsoleKey);
@@ -97,14 +97,14 @@ class PlayerSelectSlot extends FlxSpriteGroup
 		_joinConsoleKey.kill(); _joinKeyboardKey.kill(); _joinKeyboardKey2.kill();
 		#end
 		
-		_background.loadGraphic(Assets.getBitmapData("img/menu/0_join.png"));
+		_background.loadGraphic(Assets.getBitmapData("img/menu/0_join.json"));
 		
 		var buttonSpacing:Int = 10;
 		
 		for (i in 0...5)
 		{
 			var b:ToggleButton = new ToggleButton("", 45, 45, 10);
-			b.button.loadGraphicFromTexture(new TexturePackerData("img/menu/Player Menu.json", "img/menu/Player Menu.png"));
+			b.button.frames = FlxAtlasFrames.fromTexturePackerJson("img/menu/Player Menu.png", "img/menu/Player Menu.json");
 			b.button.animation.addByPrefix("default", "playerSelectBox_shine_" + i + "_", 60, false);
 			b.button.animation.play("default", false);
 			b.x = i * (b.width + buttonSpacing) + (width - (b.width + buttonSpacing) * 5) / 2;
@@ -120,30 +120,30 @@ class PlayerSelectSlot extends FlxSpriteGroup
 		selectIndex(0, true);
 		
 		var inputIcon:FlxSprite = new FlxSprite();
-		if (_layout.isController) inputIcon.loadGraphic("img/gui/controller_p" + Std.string(_controllerID + 1) + ".png")
+		if (_layout.isController) inputIcon.loadGraphic("img/gui/controller_p" + Std.string(_controllerID + 1) + ".json")
 		else
 		{
-			if (_layout.moveUp == InputManager.keyboard1.moveUp) inputIcon.loadGraphic("img/gui/keyboard_p1.png");
-			if (_layout.moveUp == InputManager.keyboard2.moveUp) inputIcon.loadGraphic("img/gui/keyboard_p2.png");
+			if (_layout.moveUp == InputManager.keyboard1.moveUp) inputIcon.loadGraphic("img/gui/keyboard_p1.json");
+			if (_layout.moveUp == InputManager.keyboard2.moveUp) inputIcon.loadGraphic("img/gui/keyboard_p2.json");
 		}
 		inputIcon.x = _background.width / 2 - inputIcon.width / 2;
 		inputIcon.y = _background.height - inputIcon.height - 40;
 		add(inputIcon);
 		
 		#if ouya
-		var controls:FlxSprite = new FlxSprite(0, 0, "img/menu/controls_ouya.png");
+		var controls:FlxSprite = new FlxSprite(0, 0, "img/menu/controls_ouya.json");
 		controls.x = _background.width / 2 - controls.width / 2;
 		controls.y = 300;
 		add(controls);
 		#else
 		if (_layout.isController)
 		{
-			var controls:FlxSprite = new FlxSprite(0, 0, "img/menu/controls_xbox.png");
+			var controls:FlxSprite = new FlxSprite(0, 0, "img/menu/controls_xbox.json");
 			controls.x = _background.width / 2 - controls.width / 2;
 			controls.y = 300;
 			add(controls);
 		} else {
-			var controls:FlxSprite = new FlxSprite(0, 0, "img/menu/controls_keyboard.png");
+			var controls:FlxSprite = new FlxSprite(0, 0, "img/menu/controls_keyboard.json");
 			controls.x = _background.width / 2 - controls.width / 2;
 			controls.y = 300;
 			add(controls);
@@ -185,9 +185,9 @@ class PlayerSelectSlot extends FlxSpriteGroup
 		_controllerDelay = .2;
 	}
 	
-	override public function update():Void 
+	override public function update(elapsed:Float):Void 
 	{
-		super.update();
+		super.update(elapsed);
 		
 		if (_layout == null || ready) return;
 		
@@ -241,7 +241,7 @@ class PlayerSelectSlot extends FlxSpriteGroup
 			FlxTween.tween(_buttons[_selectedIndex].scale, { x: 1.5, y: 1.5 }, .15);
 			FlxTween.tween(_buttons[_selectedIndex].scale, { x: 1, y: 1 }, .15, { startDelay: .15 } );
 			
-			var readyCover:FlxSprite = new FlxSprite(0, 0, "img/menu/ready_join.png");
+			var readyCover:FlxSprite = new FlxSprite(0, 0, "img/menu/ready_join.json");
 			readyCover.x -= (readyCover.width - _background.width) / 2;
 			readyCover.y -= (readyCover.height - _background.height) / 2;
 			readyCover.alpha = 0;
@@ -267,7 +267,7 @@ class PlayerSelectSlot extends FlxSpriteGroup
 		_selectedIndex = index;
 		selectedColour = index;
 		
-		_background.loadGraphic(Assets.getBitmapData("img/menu/" + _selectedIndex +  "_join.png"));
+		_background.loadGraphic(Assets.getBitmapData("img/menu/" + _selectedIndex +  "_join.json"));
 		cast(_buttons[_selectedIndex], ToggleButton).button.animation.play("default");
 		
 		_selectorRect.gotoItem(_buttons[_selectedIndex], force);

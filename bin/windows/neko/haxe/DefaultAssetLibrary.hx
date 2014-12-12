@@ -24,7 +24,7 @@ import sys.FileSystem;
 #end
 
 #if ios
-import openfl.utils.SystemPath;
+import openfl._v2.utils.SystemPath;
 #end
 
 
@@ -188,6 +188,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/map/GameAssets.json", AssetType.TEXT);
 		path.set ("img/map/GameAssets.png", "img/map/GameAssets.png");
 		type.set ("img/map/GameAssets.png", AssetType.IMAGE);
+		path.set ("img/map/mapPreviews.json", "img/map/mapPreviews.json");
+		type.set ("img/map/mapPreviews.json", AssetType.TEXT);
+		path.set ("img/map/mapPreviews.png", "img/map/mapPreviews.png");
+		type.set ("img/map/mapPreviews.png", AssetType.IMAGE);
 		path.set ("img/map/metalShading.png", "img/map/metalShading.png");
 		type.set ("img/map/metalShading.png", AssetType.IMAGE);
 		path.set ("img/map/metal_crate.png", "img/map/metal_crate.png");
@@ -222,12 +226,44 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/menu/controller_p3.png", AssetType.IMAGE);
 		path.set ("img/menu/controller_p4.png", "img/menu/controller_p4.png");
 		type.set ("img/menu/controller_p4.png", AssetType.IMAGE);
+		path.set ("img/menu/controls_fire.png", "img/menu/controls_fire.png");
+		type.set ("img/menu/controls_fire.png", AssetType.IMAGE);
 		path.set ("img/menu/controls_keyboard.png", "img/menu/controls_keyboard.png");
 		type.set ("img/menu/controls_keyboard.png", AssetType.IMAGE);
 		path.set ("img/menu/controls_ouya.png", "img/menu/controls_ouya.png");
 		type.set ("img/menu/controls_ouya.png", AssetType.IMAGE);
 		path.set ("img/menu/controls_xbox.png", "img/menu/controls_xbox.png");
 		type.set ("img/menu/controls_xbox.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt1.png", "img/menu/firePrompt1.png");
+		type.set ("img/menu/firePrompt1.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt1_black.png", "img/menu/firePrompt1_black.png");
+		type.set ("img/menu/firePrompt1_black.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt2.png", "img/menu/firePrompt2.png");
+		type.set ("img/menu/firePrompt2.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt2_black.png", "img/menu/firePrompt2_black.png");
+		type.set ("img/menu/firePrompt2_black.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt3.png", "img/menu/firePrompt3.png");
+		type.set ("img/menu/firePrompt3.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt3_black.png", "img/menu/firePrompt3_black.png");
+		type.set ("img/menu/firePrompt3_black.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt4.png", "img/menu/firePrompt4.png");
+		type.set ("img/menu/firePrompt4.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt4_black.png", "img/menu/firePrompt4_black.png");
+		type.set ("img/menu/firePrompt4_black.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt5.png", "img/menu/firePrompt5.png");
+		type.set ("img/menu/firePrompt5.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt5_black.png", "img/menu/firePrompt5_black.png");
+		type.set ("img/menu/firePrompt5_black.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt6.png", "img/menu/firePrompt6.png");
+		type.set ("img/menu/firePrompt6.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt6_black.png", "img/menu/firePrompt6_black.png");
+		type.set ("img/menu/firePrompt6_black.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt7.png", "img/menu/firePrompt7.png");
+		type.set ("img/menu/firePrompt7.png", AssetType.IMAGE);
+		path.set ("img/menu/firePrompt7_black.png", "img/menu/firePrompt7_black.png");
+		type.set ("img/menu/firePrompt7_black.png", AssetType.IMAGE);
+		path.set ("img/menu/fire_toJoin.png", "img/menu/fire_toJoin.png");
+		type.set ("img/menu/fire_toJoin.png", AssetType.IMAGE);
 		path.set ("img/menu/gameTitle.png", "img/menu/gameTitle.png");
 		type.set ("img/menu/gameTitle.png", AssetType.IMAGE);
 		path.set ("img/menu/grey_join.png", "img/menu/grey_join.png");
@@ -471,13 +507,920 @@ class DefaultAssetLibrary extends AssetLibrary {
 		var id;
 		id = "assets/sounds/beep.ogg";
 		path.set (id, id);
+		
 		type.set (id, AssetType.SOUND);
 		id = "assets/sounds/flixel.ogg";
 		path.set (id, id);
+		
 		type.set (id, AssetType.SOUND);
+		id = "img/bullets/bulletBlue_end.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/bullets/bulletOrange.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/bullets/bulletRed.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/bullets/explosion.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/bullets/explosion.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/bullets/Green Bullet.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/bullets/Green Bullet.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/bullets/Yellow Bullet.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/bullets/Yellow Bullet.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/Crate Break.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/Crate Break.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/0UI.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/1UI.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/2UI.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/3UI.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/4UI.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/backgroundBoarder.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/backgroundScore.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/backgroundStatic1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/backgroundStatic2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/backgroundStatic3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/backgroundStatic4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/beastIcon.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/burstIcon.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/circleShadeChar.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/controller_p1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/controller_p2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/controller_p3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/controller_p4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/flareIcon.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/flashIcon.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/Get Ready 1.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/gui/Get Ready 1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/Get Ready 2.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/gui/Get Ready 2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/Get Ready.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/gui/Get Ready.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/increaseZombieIcon.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/keyboard_p1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/keyboard_p2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/p1Letters.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/p2Letters.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/p3Letters.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/p4_Letters.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/playerCircle0.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/playerCircle1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/playerCircle2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/playerCircle3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/playerCircle4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/playerTriangle0.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/playerTriangle1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/playerTriangle2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/playerTriangle3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/playerTriangle4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/shieldIcon.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/sightIcon.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/winningTextBox0.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/winningTextBox1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/winningTextBox2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/winningTextBox3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/gui/winningTextBox4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/items.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/items.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/Crate Break.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/map/Crate Break.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/crate.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/crateShading.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/GameAssets.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/map/GameAssets.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/mapPreviews.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/map/mapPreviews.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/metalShading.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/metal_crate.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/Sparkle.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/Tilemap.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/TilemapOuya.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/map/Water.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/0_join.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/1_join.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/2_join.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/3_join.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/4_join.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/arrow.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/backMainMenu.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/controller_p1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/controller_p2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/controller_p3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/controller_p4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/controls_fire.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/controls_keyboard.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/controls_ouya.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/controls_xbox.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt1_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt2_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt3_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt4_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt5.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt5_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt6.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt6_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt7.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/firePrompt7_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/fire_toJoin.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/gameTitle.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/grey_join.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/help.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/menu/help.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/key.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map10.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map11.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map12.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map13.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map14.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map15.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map16.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map17.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map18.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map19.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map20.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map5.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map6.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map7.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map8.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Map Previews/map9.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Menu Button.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/menu/Menu Button.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt1_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt2_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt3_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt4_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt5.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt5_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt6.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt6_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt7.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouyaPrompt7_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ouya_toJoin.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt1_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt2_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt3_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt4_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt5.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt5_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt6.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt6_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt7.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/pcPrompt7_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/Player Menu.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/menu/Player Menu.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/ready_join.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt1_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt2_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt3_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt4.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt4_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt5.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt5_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt6.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt6_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt7.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xboxPrompt7_black.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/menu/xbox_a_button.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/players/Blue Player.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/players/Blue Player.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/players/Green Player.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/players/Green Player.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/players/halo.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/players/Muzzle Flashes.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/players/Muzzle Flashes.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/players/Orange Player.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/players/Orange Player.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/players/Powerup ring.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/players/Powerup ring.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/players/Purple Player.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/players/Purple Player.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/players/Red Player.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/players/Red Player.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/powerups/flare.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/powerups/flare.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/powerups/Shield.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/powerups/Shield.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/skull.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/skull.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/Tombstone.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/Tombstone.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "img/Zombie.json";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "img/Zombie.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "map/0.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/1.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/10.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/11.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/12.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/2.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/3.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/4.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/5.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/6.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/7.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/8.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "map/9.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "info/tiledefs.txt";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
+		id = "sound/0.ogg";
+		path.set (id, id);
+		type.set (id, AssetType.MUSIC);
+		id = "dekar";
+		path.set (id, "assets/font/DEKAR.OTF");
+		type.set (id, AssetType.FONT);
+		id = "arial";
+		path.set (id, "assets/font/ARIAL.TTF");
+		type.set (id, AssetType.FONT);
+		id = "zombie";
+		path.set (id, "assets/font/ZOMBIE.TTF");
+		type.set (id, AssetType.FONT);
+		id = "impact";
+		path.set (id, "assets/font/IMPACT.TTF");
+		type.set (id, AssetType.FONT);
 		
 		
 		#else
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Font.registerFont (__ASSET__assets_font_dekar_otf);
+		Font.registerFont (__ASSET__assets_font_arial_ttf);
+		Font.registerFont (__ASSET__assets_font_zombie_ttf);
+		Font.registerFont (__ASSET__assets_font_impact_ttf);
+		
 		
 		#if (windows || mac || linux)
 		
@@ -488,6 +1431,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/sounds/flixel.ogg", __ASSET__assets_sounds_flixel_ogg);
 		type.set ("assets/sounds/flixel.ogg", AssetType.SOUND);
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -780,7 +1741,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 			
 			#else
 			
-			if (type == BINARY || type == null) {
+			if (type == BINARY || type == null || (assetType == BINARY && type == TEXT)) {
 				
 				return true;
 				
@@ -1312,8 +2273,26 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if pixi
 #elseif flash
 
-@:keep class __ASSET__assets_sounds_beep_ogg extends null { }
-@:keep class __ASSET__assets_sounds_flixel_ogg extends null { }
+@:keep #if display private #end class __ASSET__assets_sounds_beep_ogg extends null { }
+@:keep #if display private #end class __ASSET__assets_sounds_flixel_ogg extends null { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1730,17 +2709,55 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
-@:keep class __ASSET__assets_font_dekar_otf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "dekar"; } #end }
-@:keep class __ASSET__assets_font_arial_ttf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "arial"; } #end }
-@:keep class __ASSET__assets_font_zombie_ttf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "zombie"; } #end }
-@:keep class __ASSET__assets_font_impact_ttf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "impact"; } #end }
 
 
-#elseif (windows || mac || linux)
 
 
-@:sound("C:/HaxeToolkit/haxe/lib/flixel/3,3,5/assets/sounds/beep.ogg") class __ASSET__assets_sounds_beep_ogg extends flash.media.Sound {}
-@:sound("C:/HaxeToolkit/haxe/lib/flixel/3,3,5/assets/sounds/flixel.ogg") class __ASSET__assets_sounds_flixel_ogg extends flash.media.Sound {}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+@:keep #if display private #end class __ASSET__assets_font_dekar_otf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "dekar"; } #end }
+@:keep #if display private #end class __ASSET__assets_font_arial_ttf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "arial"; } #end }
+@:keep #if display private #end class __ASSET__assets_font_zombie_ttf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "zombie"; } #end }
+@:keep #if display private #end class __ASSET__assets_font_impact_ttf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "impact"; } #end }
+
+
+#else
+
+#if (windows || mac || linux)
+
+
+@:sound("C:/HaxeToolkit/haxe/lib/flixel/3,3,5/assets/sounds/beep.ogg") #if display private #end class __ASSET__assets_sounds_beep_ogg extends flash.media.Sound {}
+@:sound("C:/HaxeToolkit/haxe/lib/flixel/3,3,5/assets/sounds/flixel.ogg") #if display private #end class __ASSET__assets_sounds_flixel_ogg extends flash.media.Sound {}
+
+
+
+class __ASSET__assets_font_dekar_otf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/font/DEKAR.OTF"; fontName = "Dekar"; }}
+class __ASSET__assets_font_arial_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/font/ARIAL.TTF"; fontName = "Arial"; }}
+class __ASSET__assets_font_zombie_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/font/ZOMBIE.TTF"; fontName = "ZombieA"; }}
+class __ASSET__assets_font_impact_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/font/IMPACT.TTF"; fontName = "Impact"; }}
+
+
+#else
+
+
+class __ASSET__assets_font_dekar_otf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/font/DEKAR.OTF"; fontName = "Dekar";  }}
+class __ASSET__assets_font_arial_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/font/ARIAL.TTF"; fontName = "Arial";  }}
+class __ASSET__assets_font_zombie_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/font/ZOMBIE.TTF"; fontName = "ZombieA";  }}
+class __ASSET__assets_font_impact_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/font/IMPACT.TTF"; fontName = "Impact";  }}
+
+
+#end
 
 #end
