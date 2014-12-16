@@ -3,6 +3,7 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.graphics.FlxGraphic;
+import flixel.graphics.frames.FlxTileFrames;
 import flixel.group.FlxGroup;
 import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxTween;
@@ -47,24 +48,15 @@ class Level
 	public function setup():Void
 	{
 		parseDefs();
-		
-		/*var cached:FlxGraphic = FlxG.bitmap.add("img/map/Tilemap.png");
-		#if ouya
-		cached = FlxG.bitmap.add("img/map/TilemapOuya.json");
-		#end
-		var startX:Int = Reg.tileSpacing;
-		var startY:Int = Reg.tileSpacing;*/
-		var tileWidth:Int = 60;
-		var tileHeight:Int = 60;/*
-		var spacingX:Int = Reg.tileSpacing;
-		var spacingY:Int = Reg.tileSpacing;
-		var width:Int = cached.bitmap.width - startX;
-		var height:Int = cached.bitmap.height - startY;
-		var textureRegion:TextureRegion = new TextureRegion(cached, startX, startY, tileWidth, tileHeight, spacingX, spacingY, width, height);*/
-		
+
 		tilemap = new FlxTilemap();
-		tilemap.loadMapFromCSV(midString, "img/map/TilemapOuya.png", tileWidth, tileHeight);
-		//tilemap.loadMap(midString, textureRegion, tileWidth, tileHeight);
+		var cachedGraphic:FlxTileFrames = FlxTileFrames.fromBitmapWithSpacings("img/map/Tilemap.png", new FlxPoint(60, 60), new FlxPoint(0, 0));
+
+		#if ouya
+		cachedGraphic = FlxTileFrames.fromBitmapWithSpacings("img/map/TilemapOuya.png", new FlxPoint(60, 60), new FlxPoint(Reg.tileSpacing, Reg.tileSpacing));
+		#end
+
+		tilemap.loadMapFromCSV(midString, cachedGraphic, 60, 60);
 		
 		var highestTile:Int = 0;
 		for (i in 0...tilemap.totalTiles)

@@ -24,11 +24,11 @@ class HelpSubState extends MintSubState
 		_help.frames = FlxAtlasFrames.fromTexturePackerJson("img/menu/help.png", "img/menu/help.json");
 		
 		#if fire
-		_help.animation.addByNames("default", [ "help0001_fire.json", "help0002.json", "help0003.json", "help0004.json", "help0005.json"], 0, false);
-		#else if ouya
-		_help.animation.addByNames("default", [ "help0001_ouya.json", "help0002.json", "help0003.json", "help0004.json", "help0005.json"], 0, false);
-		#else if pc
-		_help.animation.addByNames("default", [ "help0001.json", "help0002.json", "help0003.json", "help0004.json", "help0005.json"], 0, false);
+		_help.animation.addByNames("default", [ "help0001_fire.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
+		#elseif ouya
+		_help.animation.addByNames("default", [ "help0001_ouya.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
+		#elseif pc
+		_help.animation.addByNames("default", [ "help0001.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
 		#end
 		_help.animation.play("default");
 		_help.x = FlxG.width / 2 - _help.width / 2;

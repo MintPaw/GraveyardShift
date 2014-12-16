@@ -1,0 +1,172 @@
+{"frames": [
+
+{
+	"filename": "map0001.png",
+	"frame": {"x":2029,"y":754,"w":754,"h":425},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0002.png",
+	"frame": {"x":1604,"y":425,"w":754,"h":425},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0003.png",
+	"frame": {"x":1179,"y":425,"w":754,"h":425},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0004.png",
+	"frame": {"x":0,"y":850,"w":754,"h":425},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0005.png",
+	"frame": {"x":754,"y":425,"w":754,"h":425},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0006.png",
+	"frame": {"x":0,"y":425,"w":754,"h":425},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0007.png",
+	"frame": {"x":3537,"y":0,"w":754,"h":425},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0008.png",
+	"frame": {"x":3112,"y":0,"w":754,"h":425},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0009.png",
+	"frame": {"x":2687,"y":0,"w":754,"h":425},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0010.png",
+	"frame": {"x":2262,"y":0,"w":754,"h":425},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0011.png",
+	"frame": {"x":1508,"y":0,"w":754,"h":425},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0012.png",
+	"frame": {"x":754,"y":0,"w":754,"h":425},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0013.png",
+	"frame": {"x":0,"y":0,"w":754,"h":425},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":425},
+	"sourceSize": {"w":754,"h":425}
+},
+{
+	"filename": "map0014.png",
+	"frame": {"x":1933,"y":1179,"w":754,"h":350},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":350},
+	"sourceSize": {"w":754,"h":350}
+},
+{
+	"filename": "map0015.png",
+	"frame": {"x":1179,"y":1179,"w":754,"h":350},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":350},
+	"sourceSize": {"w":754,"h":350}
+},
+{
+	"filename": "map0016.png",
+	"frame": {"x":425,"y":1179,"w":754,"h":350},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":350},
+	"sourceSize": {"w":754,"h":350}
+},
+{
+	"filename": "map0017.png",
+	"frame": {"x":3133,"y":1104,"w":754,"h":350},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":350},
+	"sourceSize": {"w":754,"h":350}
+},
+{
+	"filename": "map0018.png",
+	"frame": {"x":2783,"y":1104,"w":754,"h":350},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":350},
+	"sourceSize": {"w":754,"h":350}
+},
+{
+	"filename": "map0019.png",
+	"frame": {"x":3537,"y":754,"w":754,"h":350},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":350},
+	"sourceSize": {"w":754,"h":350}
+},
+{
+	"filename": "map0020.png",
+	"frame": {"x":2783,"y":754,"w":754,"h":350},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":754,"h":350},
+	"sourceSize": {"w":754,"h":350}
+}],
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "mapPreviews.png",
+	"format": "RGBA8888",
+	"size": {"w":4096,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5d68a9345e99ee614c30a33ebe6fe455$"
+}
+}
