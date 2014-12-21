@@ -739,8 +739,11 @@ class GameState extends FlxState
 		{
 			player.lastBullet.explode();
 			player.lastBullet = null;
+			FlxG.camera.shake(.1, .5);
 			return;
 		}
+
+		FlxG.camera.shake(.001, .1);
 		
 		var b:Bullet = new Bullet(_playerGroup.members[0]);
 		

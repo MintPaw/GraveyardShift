@@ -30,7 +30,8 @@ class Main extends Sprite
 	{
 		removeEventListener(Event.ADDED_TO_STAGE, init);
 		
-		startGame();
+		Reflect.callMethod(this, Reflect.field(this, "startGame"), []);
+		//startGame();
 	}
 	
 	private function startGame():Void
