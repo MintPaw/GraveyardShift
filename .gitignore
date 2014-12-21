@@ -1,8 +1,9 @@
-/bin/android/*
-/bin/flash/
+/bin/android/
+/bin/neko/
+
+/bin/flash/haxe
+/bin/flash/obj
 /bin/html5/haxe
 /bin/html5/obj
 /bin/windows/cpp/haxe
 /bin/windows/cpp/obj
-/bin/neko/cpp/haxe
-/bin/neko/cpp/obj

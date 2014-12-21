@@ -91,9 +91,10 @@ class PlayerSelectSlot extends FlxSpriteGroup
 		_buttons = [];
 		joined = true;
 		
-		#if ouya||fire
+		#if ouya
 		_joinConsoleKey.kill();
-
+		#elseif fire
+		_joinConsoleKey.kill();
 		#elseif pc
 		_joinConsoleKey.kill();
 		_joinKeyboardKey.kill();
