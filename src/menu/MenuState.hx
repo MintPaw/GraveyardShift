@@ -170,7 +170,12 @@ class MenuState extends FlxState
 		{
 			var tree:FlxSprite = new FlxSprite();
 			tree.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
-			tree.animation.addByNames("default", ["bush" + Math.round(Math.random() + 1) + ".png"], 0, false);
+			if (_level.isSnow)
+			{
+				tree.animation.addByNames("default", [Reg.random.bool() ? "bush2.png" : "bushSnow.png"], 0, false);
+			} else {
+				tree.animation.addByNames("default", ["bush" + Math.round(Math.random() + 1) + ".json"], 0, false);
+			}
 			tree.animation.play("default");
 			tree.scale.x = Math.random() > .5 ? -1 : 1;
 			tree.offset.y = tree.height - (tree.height * .2) * 2;
@@ -185,7 +190,12 @@ class MenuState extends FlxState
 		{
 			var tree:FlxSprite = new FlxSprite();
 			tree.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
-			tree.animation.addByNames("default", ["tree" + Math.round(Math.random() + 1) + ".png"], 0, false);
+			if (_level.isSnow)
+			{
+				tree.animation.addByNames("default", [Reg.random.bool() ? "tree2.png" : "treeSnow.png"], 0, false);
+			} else {
+				tree.animation.addByNames("default", ["tree" + Math.round(Math.random() + 1) + ".png"], 0, false);
+			}
 			tree.x = _level.largeTreeList[i].x + Reg.randMinMax( -Reg.LARGE_TREE_JUMBLE, Reg.LARGE_TREE_JUMBLE) - tree.width / 2;
 			tree.y = _level.largeTreeList[i].y  + Reg.randMinMax( -Reg.LARGE_TREE_JUMBLE, Reg.LARGE_TREE_JUMBLE) - tree.height / 2;
 			tree.scale.x = Math.random() > .5 ? -1 : 1;
