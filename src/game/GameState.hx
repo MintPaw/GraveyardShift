@@ -124,7 +124,7 @@ class GameState extends FlxState
 		{
 			var rock:FlxSprite = new FlxSprite();
 			rock.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
-			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() * 2 + 1) + ".json"], 0, false);
+			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() * 2 + 1) + ".png"], 0, false);
 			rock.animation.play("default");
 			rock.x = _level.smallRockList[i].x + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.width / 2;
 			rock.y = _level.smallRockList[i].y  + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.height / 2;
@@ -143,7 +143,7 @@ class GameState extends FlxState
 			
 			var rock:FlxSprite = new FlxSprite();
 			rock.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
-			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() + 4) + ".json"], 0, false);
+			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() + 4) + ".png"], 0, false);
 			rock.animation.play("default");
 
 			rock.x = _level.largeRockList[i].x + randomBump.x - rock.width / 2;
@@ -163,7 +163,7 @@ class GameState extends FlxState
 
 			if (_level.isSnow)
 			{
-				tree.animation.addByNames("default", [Reg.random.bool() ? "bush2.json" : "bushSnow.json"], 0, false);
+				tree.animation.addByNames("default", [Reg.random.bool() ? "bush2.png" : "bushSnow.png"], 0, false);
 			} else {
 				tree.animation.addByNames("default", ["bush" + Math.round(Math.random() + 1) + ".json"], 0, false);
 			}
@@ -188,9 +188,9 @@ class GameState extends FlxState
 
 			if (_level.isSnow)
 			{
-				tree.animation.addByNames("default", [Reg.random.bool() ? "tree2.json" : "treeSnow.json"], 0, false);
+				tree.animation.addByNames("default", [Reg.random.bool() ? "tree2.png" : "treeSnow.png"], 0, false);
 			} else {
-				tree.animation.addByNames("default", ["tree" + Math.round(Math.random() + 1) + ".json"], 0, false);
+				tree.animation.addByNames("default", ["tree" + Math.round(Math.random() + 1) + ".png"], 0, false);
 			}
 
 			tree.x = _level.largeTreeList[i].x + Reg.randMinMax( -Reg.LARGE_TREE_JUMBLE, Reg.LARGE_TREE_JUMBLE) - tree.width / 2;

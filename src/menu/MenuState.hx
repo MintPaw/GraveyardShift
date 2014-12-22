@@ -137,7 +137,7 @@ class MenuState extends FlxState
 		{
 			var rock:FlxSprite = new FlxSprite();
 			rock.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
-			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() * 2 + 1) + ".json"], 0, false);
+			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() * 2 + 1) + ".png"], 0, false);
 			rock.animation.play("default");
 			rock.x = _level.smallRockList[i].x + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.width / 2;
 			rock.y = _level.smallRockList[i].y  + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.height / 2;
@@ -153,7 +153,7 @@ class MenuState extends FlxState
 		{
 			var rock:FlxSprite = new FlxSprite();
 			rock.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
-			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() + 4) + ".json"], 0, false);
+			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() + 4) + ".png"], 0, false);
 			rock.animation.play("default");
 			rock.x = _level.largeRockList[i].x + Reg.randMinMax( -Reg.LARGE_ROCK_JUMBLE, Reg.LARGE_ROCK_JUMBLE) - rock.width / 2;
 			rock.y = _level.largeRockList[i].y  + Reg.randMinMax( -Reg.LARGE_ROCK_JUMBLE, Reg.LARGE_ROCK_JUMBLE) - rock.height / 2;
@@ -170,7 +170,7 @@ class MenuState extends FlxState
 		{
 			var tree:FlxSprite = new FlxSprite();
 			tree.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
-			tree.animation.addByNames("default", ["bush" + Math.round(Math.random() + 1) + ".json"], 0, false);
+			tree.animation.addByNames("default", ["bush" + Math.round(Math.random() + 1) + ".png"], 0, false);
 			tree.animation.play("default");
 			tree.scale.x = Math.random() > .5 ? -1 : 1;
 			tree.offset.y = tree.height - (tree.height * .2) * 2;
@@ -185,7 +185,7 @@ class MenuState extends FlxState
 		{
 			var tree:FlxSprite = new FlxSprite();
 			tree.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/GameAssets.png", "img/map/GameAssets.json");
-			tree.animation.addByNames("default", ["tree" + Math.round(Math.random() + 1) + ".json"], 0, false);
+			tree.animation.addByNames("default", ["tree" + Math.round(Math.random() + 1) + ".png"], 0, false);
 			tree.x = _level.largeTreeList[i].x + Reg.randMinMax( -Reg.LARGE_TREE_JUMBLE, Reg.LARGE_TREE_JUMBLE) - tree.width / 2;
 			tree.y = _level.largeTreeList[i].y  + Reg.randMinMax( -Reg.LARGE_TREE_JUMBLE, Reg.LARGE_TREE_JUMBLE) - tree.height / 2;
 			tree.scale.x = Math.random() > .5 ? -1 : 1;
