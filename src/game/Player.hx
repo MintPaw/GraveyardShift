@@ -784,6 +784,7 @@ class Player extends FlxSprite
 		hitBox.kill();
 		killed = true;
 		healthBar.visible = false;
+		FlxG.camera.shake(.01, .5, null, true);
 		
 		if (needToRevive)
 		{

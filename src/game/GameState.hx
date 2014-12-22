@@ -739,7 +739,7 @@ class GameState extends FlxState
 		{
 			player.lastBullet.explode();
 			player.lastBullet = null;
-			FlxG.camera.shake(.1, .5);
+			FlxG.camera.shake(.01, .5);
 			return;
 		}
 
