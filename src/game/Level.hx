@@ -52,10 +52,6 @@ class Level
 		tilemap = new FlxTilemap();
 		var cachedGraphic:FlxTileFrames = FlxTileFrames.fromBitmapWithSpacings("img/map/Tilemap.png", new FlxPoint(60, 60), new FlxPoint(0, 0));
 
-		#if ouya
-		cachedGraphic = FlxTileFrames.fromBitmapWithSpacings("img/map/TilemapOuya.png", new FlxPoint(60, 60), new FlxPoint(Reg.tileSpacing, Reg.tileSpacing));
-		#end
-
 		tilemap.loadMapFromCSV(midString, cachedGraphic, 60, 60);
 		
 		var highestTile:Int = 0;

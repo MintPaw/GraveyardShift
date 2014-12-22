@@ -7,7 +7,7 @@
 	<haxedef name="FLX_NO_SOUNDTRAY"/>
 	<haxedef name="FLX_RENDER_TILE"/>
 	
-	<haxedef name="fire"/>
+	<haxedef name="pc"/>
 	
 	<set name="SWF_VERSION" value="12.5" />
 	<android target-sdk-version="16" />

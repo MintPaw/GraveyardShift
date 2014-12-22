@@ -1,0 +1,68 @@
+{"frames": [
+
+{
+	"filename": "bulletGreen_0001.png",
+	"frame": {"x":25,"y":13,"w":21,"h":9},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":21,"h":9},
+	"sourceSize": {"w":21,"h":9}
+},
+{
+	"filename": "bulletGreen_0002.png",
+	"frame": {"x":2,"y":13,"w":21,"h":9},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":21,"h":9},
+	"sourceSize": {"w":21,"h":9}
+},
+{
+	"filename": "bulletGreen_0003.png",
+	"frame": {"x":2,"y":25,"w":21,"h":9},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":21,"h":9},
+	"sourceSize": {"w":21,"h":9}
+},
+{
+	"filename": "bulletGreen_0004.png",
+	"frame": {"x":48,"y":2,"w":21,"h":9},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":21,"h":9},
+	"sourceSize": {"w":21,"h":9}
+},
+{
+	"filename": "bulletGreen_0005.png",
+	"frame": {"x":25,"y":2,"w":21,"h":9},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":21,"h":9},
+	"sourceSize": {"w":21,"h":9}
+},
+{
+	"filename": "bulletGreen_0006.png",
+	"frame": {"x":2,"y":2,"w":21,"h":9},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":21,"h":9},
+	"sourceSize": {"w":21,"h":9}
+},
+{
+	"filename": "bulletGreen_0007.png",
+	"frame": {"x":2,"y":48,"w":19,"h":9},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":19,"h":9},
+	"sourceSize": {"w":21,"h":9}
+}],
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "Green Bullet.png",
+	"format": "RGBA8888",
+	"size": {"w":64,"h":64},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5746bc6d46692189c7f65d4b4287cb9d$"
+}
+}

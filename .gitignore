@@ -1,5 +1,1 @@
-/bin/android
-/bin/neko
-
-/bin/**/haxe
-/bin/**/obj
+/bin
