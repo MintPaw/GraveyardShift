@@ -87,5 +87,4 @@ class Hud extends FlxSpriteGroup
 			_texts[i].text += _players[i].ammo == -1 ? "Infinite" : "x" + Std.string(_players[i].ammo);
 		}
 	}
-	
 }
