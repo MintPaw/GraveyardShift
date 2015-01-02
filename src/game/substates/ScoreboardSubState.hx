@@ -138,7 +138,7 @@ class ScoreboardSubState extends MintSubState
 		super.endAnimation(tween);
 	}
 	
-	override public function update(elapsed:Float):Void 
+	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
 		

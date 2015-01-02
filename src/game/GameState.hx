@@ -150,9 +150,6 @@ class GameState extends FlxState
 			rock.y = _level.largeRockList[i].y  + randomBump.y - rock.height / 2;
 			rock.scale.x = Math.random() > .5 ? -1 : 1;
 			rock.immovable = true;
-			rock.width *= .8;
-			rock.height *= .8;
-			rock.centerOffsets(false);
 			_bigEntitiyGroup.add(rock);
 			_entitiyGroup.add(rock);
 			_container.add(rock);
