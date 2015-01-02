@@ -78,7 +78,7 @@ class MenuState extends FlxState
 		
 		var topPadding:Int = 600;
 		var leftPadding:Int = 100;
-		var buttonPadding:Int = -25;
+		var buttonPadding:Int = -15;
 		
 		for (i in 0..._lables.length)
 		{

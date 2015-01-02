@@ -23,6 +23,7 @@ class Sm
 	
 	public static function playSong(n:String):Void
 	{
+		return;
 		_songChannel = Assets.getSound(n).play(0, 99999);
 		var t:SoundTransform = new SoundTransform(0, 0);
 		_songChannel.soundTransform = t;

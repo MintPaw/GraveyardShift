@@ -63,7 +63,7 @@ class GameState extends FlxState
 	private var _staticGroup:FlxTypedGroup<FlxSprite>;
 	private var _dynamicGroup:FlxTypedGroup<FlxSprite>;
 	
-	public function new() 
+	public function new()
 	{
 		super();
 	}
