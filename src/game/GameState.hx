@@ -670,7 +670,7 @@ class GameState extends FlxState
 
 			var a:Class<flixel.FlxG> = FlxG;
 
-			Actuate.tween(a, .75, { initialZoom: 0 });
+			Actuate.tween(a, .75, { timeScale: 0 } ).delay(1).onComplete(endRound, []);
 			//Actuate.tween(FlxG, .75, { timeScale: 0 } ).delay(1).onComplete(endRound, []);
 		}
 	}
