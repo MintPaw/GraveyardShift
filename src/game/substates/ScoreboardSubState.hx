@@ -131,6 +131,12 @@ class ScoreboardSubState extends MintSubState
 		
 		if (_winner == null) makePrompt(3) else makePrompt(5);
 	}
+
+	override public function endAnimation(tween:FlxTween):Void
+	{
+		FlxG.camera.shake(.001, .1);
+		super.endAnimation(tween);
+	}
 	
 	override public function update(elapsed:Float):Void 
 	{

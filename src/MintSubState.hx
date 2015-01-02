@@ -100,7 +100,7 @@ class MintSubState extends FlxSubState
 		}
 	}
 	
-	private function endAnimation(tween:FlxTween):Void { animatingIn = false; }
+	public function endAnimation(tween:FlxTween):Void { animatingIn = false; }
 	
 	override function tryUpdate(elapsed:Float):Void 
 	{
