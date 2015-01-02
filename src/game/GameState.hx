@@ -664,7 +664,11 @@ class GameState extends FlxState
 		if (playersAlive <= 1 && !_ending && _playerGroup.members.length > 0)
 		{
 			_ending = true;
-			Actuate.tween(FlxG, .75, { timeScale: 0 } ).delay(1).onComplete(endRound, []);
+
+			var a:Class<flixel.FlxG> = FlxG;
+
+			Actuate.tween(a, .75, { initialZoom: 0 });
+			//Actuate.tween(FlxG, .75, { timeScale: 0 } ).delay(1).onComplete(endRound, []);
 		}
 	}
 	
@@ -739,7 +743,7 @@ class GameState extends FlxState
 		{
 			player.lastBullet.explode();
 			player.lastBullet = null;
-			FlxG.camera.shake(.01, .5);
+			FlxG.camera.shake(.005, .5);
 			return;
 		}
 
