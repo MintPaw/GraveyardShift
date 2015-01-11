@@ -747,8 +747,6 @@ class GameState extends FlxState
 			return;
 		}
 		
-		if (player.currentWeapon != Player.STICKY && player.currentWeapon != Player.BLASTER) FlxG.camera.shake(.001, .1);
-		
 		var b:Bullet = new Bullet(_playerGroup.members[0]);
 		
 		for (i in 0...bullets)
@@ -784,6 +782,8 @@ class GameState extends FlxState
 		
 		if (player.ammo > 0) player.ammo--;
 		if (player.ammo == 0) player.changeWeapon(Player.BLASTER);
+		
+			if (player.currentWeapon != Player.STICKY && player.currentWeapon != Player.BLASTER) FlxG.camera.shake(.001, .1);
 		
 		if (player.currentWeapon != Player.STICKY) aggroZombies(player);
 		
