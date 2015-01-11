@@ -746,7 +746,7 @@ class GameState extends FlxState
 			FlxG.camera.shake(.005, .5);
 			return;
 		}
-
+		
 		if (player.currentWeapon != Player.STICKY && player.currentWeapon != Player.BLASTER) FlxG.camera.shake(.001, .1);
 		
 		var b:Bullet = new Bullet(_playerGroup.members[0]);
