@@ -24,7 +24,7 @@ class VersusSubState extends MintSubState
 	
 	private var _mapNameHeader:Header;
 	
-	private var _mapNames:Array<String> = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"];
+	private var _mapNames:Array<String> = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
 	
 	public function new() 
 	{
@@ -92,10 +92,10 @@ class VersusSubState extends MintSubState
 		_container.add(_mapSelector);
 		
 		buttonSpacing = 20;
-		for (i in 0...20)
+		for (i in 0...14)
 		{
 			var b:ToggleButton = new ToggleButton("", 45, 45, 50);
-			b.x = i * (b.width + buttonSpacing) + (FlxG.width - (b.width + buttonSpacing) * 20) / 2;
+			b.x = i * (b.width + buttonSpacing) + (FlxG.width - (b.width + buttonSpacing) * 20) / 2 + 207;
 			b.y = _mapSelector.y + _mapSelector.height + 20;
 			_container.add(b);
 			
@@ -139,8 +139,8 @@ class VersusSubState extends MintSubState
 		
 		var needToFinish:Bool = false;
 		
-		var canLeftFrom:Array<Int> = [1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27];
-		var canRightFrom:Array<Int> = [0, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+		var canLeftFrom:Array<Int> = [1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+		var canRightFrom:Array<Int> = [0, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
 		
 		if (goLeft && canLeftFrom.indexOf(_selectedIndex) >= 0) selectIndex(_selectedIndex - 1);
 		if (goRight && canRightFrom.indexOf(_selectedIndex) >= 0) selectIndex(_selectedIndex + 1);

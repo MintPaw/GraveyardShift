@@ -101,9 +101,9 @@ class MenuState extends FlxState
 		var promptSuffix:String = !Reg.isSnowing ? "" : "_black";
 		
 		#if ouya
-			controller = "ouya";
+		controller = "ouya";
 		#else
-			if (FlxG.gamepads.getByID(0) != null) controller = "xbox" else controller = "pc";
+		if (FlxG.gamepads.getByID(0) != null) controller = "xbox" else controller = "pc";
 		#end
 		_prompt = new FlxSprite(0, 0, "img/menu/" +  controller + "Prompt1" + promptSuffix + ".png");
 		_prompt.x = FlxG.width - _prompt.width - 20;
