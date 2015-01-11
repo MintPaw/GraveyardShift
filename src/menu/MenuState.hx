@@ -33,7 +33,7 @@ import openfl.system.System;
 class MenuState extends FlxState
 {
 	private var _items:Array<MenuItem>;
-	private var _lables:Array<String> = ["Versus", "Exterminate", "Options", "Stats", "Help", "Quit"];
+	private var _lables:Array<String> = ["Versus", "Options", "Stats", "Help", "Quit"];
 	
 	private var _selected:Int;
 	private var _inState:Bool = true;
@@ -115,7 +115,7 @@ class MenuState extends FlxState
 		_title.y = FlxG.height / 2 - _title.height / 2 - 200;
 		add(_title);
 		
-		_items[1].alpha = _items[3].alpha = .5;
+		_items[2].alpha = .5;
 	}
 	
 	private function setupBackground():Void
@@ -413,16 +413,11 @@ class MenuState extends FlxState
 			GameRules.gameMode = GameRules.VERSUS;
 			openSubState(new PlayerSelectSubState());
 		}
-		if (_selected == 1)
-		{
-			GameRules.gameMode = GameRules.EXTERMINATION;
-			openSubState(new PlayerSelectSubState());
-		}
 		
-		if (_selected == 2) openSubState(new OptionsSubState());
-		if (_selected == 3) openSubState(new StatsSubState());
-		if (_selected == 4) openSubState(new HelpSubState());
-		if (_selected == 5) System.exit(0);
+		if (_selected == 1) openSubState(new OptionsSubState());
+		if (_selected == 2) openSubState(new StatsSubState());
+		if (_selected == 3) openSubState(new HelpSubState());
+		if (_selected == 4) System.exit(0);
 		
 		_inState = false;
 	}
