@@ -63,7 +63,7 @@ class Sm
 	
 	public static function playEffect(n:String):Void
 	{
-		_effectChannel = Assets.getSound(n).play(0, 99999);
+		_effectChannel = Assets.getSound(n).play();
 	}
 	
 }

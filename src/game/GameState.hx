@@ -783,7 +783,13 @@ class GameState extends FlxState
 		if (player.ammo > 0) player.ammo--;
 		if (player.ammo == 0) player.changeWeapon(Player.BLASTER);
 		
-			if (player.currentWeapon != Player.STICKY && player.currentWeapon != Player.BLASTER) FlxG.camera.shake(.001, .1);
+		if (player.currentWeapon != Player.STICKY && player.currentWeapon != Player.BLASTER) FlxG.camera.shake(.001, .1);
+		
+		if (player.currentWeapon == Player.BLASTER) Sm.playEffect(Sm.BLASTER);
+		if (player.currentWeapon == Player.SMG) Sm.playEffect(Sm.SMG);
+		if (player.currentWeapon == Player.SHOTGUN) Sm.playEffect(Sm.SHOTGUN);
+		if (player.currentWeapon == Player.STICKY) Sm.playEffect(Sm.LAUNCHER);
+		if (player.currentWeapon == Player.LASER) Sm.playEffect(Sm.ZAPPER);
 		
 		if (player.currentWeapon != Player.STICKY) aggroZombies(player);
 		
