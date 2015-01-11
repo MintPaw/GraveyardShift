@@ -33,6 +33,7 @@ class MainState extends FlxState
 		FlxG.fixedTimestep = false;
 		FlxG.sound.soundTrayEnabled = false;
 		FlxG.mouse.visible = false;
+		FlxG.autoPause = false;
 		
 		#if ouya
 		FlxG.keys.enabled = false;
