@@ -44,7 +44,6 @@ class MainState extends FlxState
 		GameRules.setDefaults();
 		InputManager.setToDefault();
 		
-		#if debug
 		//Test scoreboard
 		/*
 		FlxG.cameras.bgColor = 0xFFFFFFFF;
@@ -57,6 +56,7 @@ class MainState extends FlxState
 		*/
 		
 		//Test game
+		
 		/*
 		Reg.players = [0, 3];
 		GameRules.gameType = GameRules.SLAYER;
@@ -66,10 +66,9 @@ class MainState extends FlxState
 		GameRules.startingPowerup = Powerup.FLARE;
 		GameRules.startingWeapon = Powerup.STICKY;
 		Reg.skipCountdown = true;
-		Reg.startGame(0);
+		Reg.startGame(3);
 		return;
 		*/
-		#end
 		
 		Sm.playSong(Sm.MAIN);
 		Reg.startMenu();
