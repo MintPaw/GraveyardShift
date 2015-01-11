@@ -66,7 +66,7 @@ class MainState extends FlxState
 		GameRules.startingPowerup = Powerup.FLARE;
 		GameRules.startingWeapon = Powerup.STICKY;
 		Reg.skipCountdown = true;
-		Reg.startGame(3);
+		Reg.startGame(1);
 		return;
 		*/
 		

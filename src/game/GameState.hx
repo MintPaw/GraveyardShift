@@ -127,7 +127,7 @@ class GameState extends FlxState
 			rock.animation.addByNames("default", ["rock" + Math.round(Math.random() * 2 + 1) + ".png"], 0, false);
 			rock.animation.play("default");
 			rock.x = _level.smallRockList[i].x + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE) - rock.width / 2;
-			rock.y = _level.smallRockList[i].y  + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE);// - rock.height / 2;
+			rock.y = _level.smallRockList[i].y  + Reg.randMinMax( -Reg.SMALL_ROCK_JUMBLE, Reg.SMALL_ROCK_JUMBLE);
 			rock.scale.x = Math.random() > .5 ? -1 : 1;
 			rock.offset.y = rock.height - (rock.height * .2) * 2;
 			rock.height *= .2;
