@@ -179,6 +179,9 @@ class MintSubState extends FlxSubState
 		}
 		
 		if (goLeft || goRight || goUp || goDown || goConfirm) _controllerDelay = .2;
+		
+		if (goBack) Sm.playEffect(Sm.MENU_BACK);
+		if (goLeft || goRight || goUp || goDown) Sm.playEffect(Sm.SELECTION_MOVE);
 	}
 	
 	override public function close():Void 

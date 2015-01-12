@@ -391,7 +391,11 @@ class MenuState extends FlxState
 		
 		if (_controllerDelay > 0) return;
 		
-		if (goLeft || goRight || goUp || goDown) _controllerDelay = .2;
+		if (goLeft || goRight || goUp || goDown)
+		{
+			_controllerDelay = .2;
+			Sm.playEffect(Sm.SELECTION_MOVE);
+		}
 		
 		if (goDown)
 		{
@@ -403,7 +407,10 @@ class MenuState extends FlxState
 		} else if (goConfirm) {
 			if (_items[_selected].alpha < 1) return;
 			confirm();
-		} else if (goBack) setSelected(5);
+		} else if (goBack) {
+			Sm.playEffect(Sm.MENU_BACK);
+			setSelected(5);
+		}
 	}
 	
 	private function confirm():Void

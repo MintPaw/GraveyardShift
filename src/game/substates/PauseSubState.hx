@@ -35,6 +35,8 @@ class PauseSubState extends MintSubState
 	{
 		super();
 		
+		Sm.playEffect(Sm.PAUSE);
+		
 		_player = player;
 	}
 	

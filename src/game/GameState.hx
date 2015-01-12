@@ -461,8 +461,8 @@ class GameState extends FlxState
 		FlxG.collide(_dynamicGroup, _dynamicGroup);
 		FlxG.collide(_dynamicGroup, _staticGroup);
 		
-		FlxG.collide(_bulletGroup, _bigEntitiyGroup, destroyBullet);
-		FlxG.collide(_bulletGroup, _level.bulletTilemap, destroyBullet);
+		FlxG.collide(_bulletGroup, _bigEntitiyGroup, destroyBulletBigEnt);
+		FlxG.collide(_bulletGroup, _level.bulletTilemap, destroyBulletWall);
 		
 		FlxG.overlap(_explosionGroup, _woodCrateGroup, explosionVSCrate);
 		
@@ -640,6 +640,8 @@ class GameState extends FlxState
 		{
 			if (_woodCrateGroup.members[i].needToBreak)
 			{
+				Sm.playEffect(Sm.WOOD_CRATE_DEAD);
+				
 				_woodCrateGroup.members[i].needToBreak = false;
 				var c:FlxSprite = new FlxSprite();
 				c.frames = FlxAtlasFrames.fromTexturePackerJson("img/map/Crate Break.png", "img/map/Crate Break.json");
@@ -831,6 +833,18 @@ class GameState extends FlxState
 		}
 	}
 	
+	private function destroyBulletWall(b1:FlxBasic, b2:FlxBasic):Void
+	{
+		Sm.playEffect(Sm.WALL_HIT);
+		destroyBullet(b1, b2);
+	}
+	
+	private function destroyBulletBigEnt(b1:FlxBasic, b2:FlxBasic):Void
+	{
+		Sm.playEffect(Sm.ROCK_HIT);
+		destroyBullet(b1, b2);
+	}
+	
 	private function destroyBullet(b1:FlxBasic, b2:FlxBasic = null):Void
 	{
 		var bullet:Bullet = _bulletGroup.members[0];
@@ -983,6 +997,8 @@ class GameState extends FlxState
 		if (bullet.noHit) return;
 		
 		var crate:FlxSprite = cast(b2, FlxSprite);
+		
+		if (crate.health < 100) Sm.playEffect(Sm.WOOD_CRATE_HIT) else Sm.playEffect(Sm.METAL_CRATE_HIT);
 		
 		if (bullet.sticky)
 		{

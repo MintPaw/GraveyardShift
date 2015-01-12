@@ -843,6 +843,8 @@ class Player extends FlxSprite
 			return;
 		}
 		
+		if (modelNumber == 2 || modelNumber == 3) Sm.playEffect(Sm.PLAYER_HIT_FEMALE) else Sm.playEffect(Sm.PLAYER_HIT_MALE);
+		
 		if (health > 0) mayKill = true;
 		
 		FlxTween.color(this, .25, 0xFFFF0000, 0xFFFFFFFF);
@@ -863,7 +865,10 @@ class Player extends FlxSprite
 		else if (p.type == Powerup.SHOTGUN) changeWeapon(SHOTGUN)
 		else if (p.type == Powerup.LASER) changeWeapon(LASER)
 		else if (p.type == Powerup.STICKY) changeWeapon(STICKY)
-		else storedPowerup = p;
+		else {
+			Sm.playEffect(Sm.POWERUP_PICKUP);
+			storedPowerup = p;
+		}
 		
 		needToUpdatePowerup = true;
 	}
@@ -873,6 +878,7 @@ class Player extends FlxSprite
 		currentWeapon = w;
 		currentWeaponID = gunToIndex(w);
 		ammo = gunAmmos[currentWeaponID];
+		Sm.playEffect(Sm.AMMO_PICKUP);
 	}
 	
 	private function setupAnimations():Void

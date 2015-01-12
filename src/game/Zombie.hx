@@ -153,8 +153,10 @@ class Zombie extends FlxSprite
 	{
 		if (attacking && animation.curAnim.name == ATTACKING && animation.finished)
 		{
+			Sm.playEffect(Sm.ZOMBIE_ATTACK);
 			if (getMidpoint().distanceTo(chasing.getMidpoint()) <= 100)
 			{
+				Sm.playEffect(Sm.ZOMBIE_HIT);
 				if (Std.is(chasing, Player)) cast(chasing, Player).lastPlayerToHit = null;
 				chasing.hurt(_damage);
 			}
