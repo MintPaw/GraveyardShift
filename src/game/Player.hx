@@ -751,10 +751,15 @@ class Player extends FlxSprite
 		if (storedPowerup.type == Powerup.BEAST && !isBeast) turnOnBeast();
 		if (storedPowerup.type == Powerup.FLARE) needsDropFlare = true;
 		if (storedPowerup.type == Powerup.LOSE_ATTRACTION && alpha == 1) needsLostAttraction = true;
-		if (storedPowerup.type == Powerup.FLASH) FlxG.camera.flash(FlxColor.WHITE, 10, null, true);
+		if (storedPowerup.type == Powerup.FLASH)
+		{
+			Sm.playEffect(Sm.FLASH_BANG);
+			FlxG.camera.flash(FlxColor.WHITE, 10, null, true);
+		}
 		if (storedPowerup.type == Powerup.SPAWN) needsToSpawnZombies = true;
 		if (storedPowerup.type == Powerup.BURST)
 		{
+			Sm.playEffect(Sm.ACTIVATE_HALO);
 			needToRevive = true;
 			halo.visible = true;
 		}
@@ -806,6 +811,7 @@ class Player extends FlxSprite
 	private function reviveSelf(timer:FlxTimer):Void
 	{
 		if (!killed) return;
+		Sm.playEffect(Sm.RESSURRECT);
 		killed = false;
 		needToRevive = false;
 		halo.visible = false;
@@ -959,6 +965,7 @@ class Player extends FlxSprite
 	private function turnOnBeast():Void
 	{
 		isBeast = true;
+		Sm.playEffect(Sm.BEAST);
 		/*for (i in 0...trail.members.length) FlxTween.tween(trail.members[i], { alpha: 1 - i * .1 }, .3);
 		_beastTimer.start(10, turnOffBeast);
 		color = 0xFFFF3333;*/
@@ -982,6 +989,7 @@ class Player extends FlxSprite
 	
 	public function removeShield():Void
 	{ 
+		Sm.playEffect(Sm.SHIELD_DOWN);
 		hasShield = false;
 		shield.animation.play("destroy");
 	}

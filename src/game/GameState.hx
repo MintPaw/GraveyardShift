@@ -526,12 +526,14 @@ class GameState extends FlxState
 			
 			if (_playerGroup.members[i].needsDropFlare)
 			{
+				Sm.playEffect(Sm.FLARE);
 				_playerGroup.members[i].needsDropFlare = false;
 				dropFlare(_playerGroup.members[i].x + _playerGroup.members[i].width / 2, _playerGroup.members[i].y);
 			}
 			
 			if (_playerGroup.members[i].needsLostAttraction)
 			{
+				Sm.playEffect(Sm.INVIS);
 				_playerGroup.members[i].needsLostAttraction = false;
 				
 				unAggroZombies(_playerGroup.members[i]);
@@ -540,6 +542,7 @@ class GameState extends FlxState
 			
 			if (_playerGroup.members[i].needsToSpawnZombies)
 			{
+				Sm.playEffect(Sm.SPAWN_ZOMBIES);
 				_playerGroup.members[i].needsToSpawnZombies = false;
 				
 				for (j in 0..._playerGroup.members.length)
