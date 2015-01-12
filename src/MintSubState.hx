@@ -181,6 +181,7 @@ class MintSubState extends FlxSubState
 		if (goLeft || goRight || goUp || goDown || goConfirm) _controllerDelay = .2;
 		
 		if (goBack) Sm.playEffect(Sm.MENU_BACK);
+		if (goConfirm) Sm.playEffect(Sm.MENU_CLICK);
 		if (goLeft || goRight || goUp || goDown) Sm.playEffect(Sm.SELECTION_MOVE);
 	}
 	

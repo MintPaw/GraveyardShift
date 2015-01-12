@@ -41,7 +41,6 @@ class Sm
 	public static var PAUSE:String = "sound/effects/28-pause.ogg";
 	public static var MENU_BACK:String = "sound/effects/33-menu back.ogg";
 	public static var MENU_CLICK:String = "sound/effects/34-menu click.ogg";
-	public static var SELECT_CONFIRM:String = "sound/effects/34-select_confirm.ogg";
 	public static var SELECTION_MOVE:String = "sound/effects/35-selection move.ogg";
 	
 	private static var _songChannel:SoundChannel;

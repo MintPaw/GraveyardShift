@@ -405,6 +405,7 @@ class MenuState extends FlxState
 			var selection:Int = _selected == 0 ? _items.length - 1 : _selected - 1;
 			setSelected(selection);
 		} else if (goConfirm) {
+			Sm.playEffect(Sm.MENU_CLICK);
 			if (_items[_selected].alpha < 1) return;
 			confirm();
 		} else if (goBack) {
