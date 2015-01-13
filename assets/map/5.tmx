@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="32" height="18" tilewidth="60" tileheight="60">
  <tileset firstgid="1" name="ground" tilewidth="60" tileheight="60" spacing="2" margin="2">
-  <image source="../img/map/Tilemap.png" width="420" height="1740"/>
+  <image source="../img/map/TilemapOuya.png" width="1024" height="1024"/>
  </tileset>
  <layer name="Water" width="32" height="18">
   <data encoding="csv">
@@ -25,7 +25,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Main" width="32" height="18" visible="0">
+ <layer name="Main" width="32" height="18">
   <data encoding="csv">
 113,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,112,
 97,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,96,
@@ -47,7 +47,7 @@
 115,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,114
 </data>
  </layer>
- <layer name="Meta" width="32" height="18" visible="0">
+ <layer name="Meta" width="32" height="18">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
