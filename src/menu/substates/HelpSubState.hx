@@ -24,13 +24,20 @@ class HelpSubState extends MintSubState
 		_help.frames = FlxAtlasFrames.fromTexturePackerJson("img/menu/help.png", "img/menu/help.json");
 		
 		#if fire
-		_help.animation.addByNames("default", [ "help0001_fire.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
-		#elseif ouya
-		_help.animation.addByNames("default", [ "help0001_ouya.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
-		#elseif pc
-		_help.animation.addByNames("default", [ "help0001.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
+		trace("f");
+		_help.animation.addByNames("d", [ "firehelp.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
 		#end
-		_help.animation.play("default");
+		#if ouya
+		trace("o");
+		_help.animation.addByNames("d", [ "ouyahelp.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
+		#end
+		#if pc
+		trace("p");
+		_help.animation.addByNames("d", [ "pchelp.png", "help0002.png", "help0003.png", "help0004.png", "help0005.png"], 0, false);
+		#end
+		
+		
+		_help.animation.play("d");
 		_help.x = FlxG.width / 2 - _help.width / 2;
 		_help.y = FlxG.height / 2 - _help.height / 2;
 		_container.add(_help);
@@ -41,7 +48,7 @@ class HelpSubState extends MintSubState
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		
+		FlxG.log.add(_help.animation.frameName);
 		if (goRight && _help.animation.frameIndex < _help.animation.curAnim.numFrames - 1) _help.animation.frameIndex++;
 		if (goLeft && _help.animation.frameIndex > 0) _help.animation.frameIndex--;
 		if (goBack) close();
