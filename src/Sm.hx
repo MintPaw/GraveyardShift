@@ -13,6 +13,8 @@ import openfl.media.SoundTransform;
 class Sm
 {
 	public static var MAIN:String = "sound/0.ogg";
+	public static var FORREST:String = "sound/1.ogg";
+	public static var SCIFI:String = "sound/2.ogg";
 	
 	public static var BLASTER:String = "sound/effects/1-blaster.ogg";
 	public static var SMG:String = "sound/effects/2-smg.ogg";

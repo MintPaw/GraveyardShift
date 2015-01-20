@@ -36,6 +36,8 @@ class Level
 	public var sparkleGroup:FlxGroup;
 	
 	public var isSnow:Bool = false;
+	public var isForrest:Bool = false;
+	public var isScifi:Bool = false;
 	
 	private var _sparkleTimer:FlxTimer;
 	private var _tiledefs:Array<Array<Int>>;
@@ -59,6 +61,8 @@ class Level
 		{
 			if (tilemap.getTileByIndex(i) == 0) tilemap.setTileByIndex(i, 1, true);
 			if (tilemap.getTileByIndex(i) == _tiledefs[3][0]) isSnow = true;
+			if (tilemap.getTileByIndex(i) == _tiledefs[4][0]) isForrest = true;
+			if (tilemap.getTileByIndex(i) == _tiledefs[5][0]) isScifi = true;
 			highestTile = Math.round(Math.max(highestTile, tilemap.getTileByIndex(i)));
 		}
 		
