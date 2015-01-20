@@ -81,6 +81,9 @@ class GameState extends FlxState
 		setupHud();
 		
 		showCounter();
+		
+		if (_level.isForrest) Sm.playSong(Sm.FORREST);
+		if (_level.isScifi) Sm.playSong(Sm.SCIFI);
 	}
 	
 	private function setupVars():Void

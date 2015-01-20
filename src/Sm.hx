@@ -48,18 +48,23 @@ class Sm
 	private static var _songChannel:SoundChannel;
 	private static var _effectChannel:SoundChannel;
 	
-	public function new() 
+	public function new()
 	{
 		
 	}
 	
-	public static function playSong(n:String):Void
+	public static function playSong(n:String, force:Bool = false):Void
 	{
+		if (!force && _songChannel != null)
+		{
+			Actuate.transform(_songChannel, 2).sound(0).onComplete(playSong, [n, true]);
+			return;
+		}
+		
 		_songChannel = Assets.getSound(n).play(0, 99999);
 		var t:SoundTransform = new SoundTransform(0, 0);
 		_songChannel.soundTransform = t;
-		
-		Actuate.transform(_songChannel, 10).sound(1, 0).delay(1);
+		Actuate.transform(_songChannel, 2).sound(1);
 	}
 	
 	public static function playEffect(n:String):Void
