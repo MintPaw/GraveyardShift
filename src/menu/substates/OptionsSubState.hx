@@ -108,8 +108,8 @@ class OptionsSubState extends MintSubState
 			}
 			if (_selectedIndex == 2) Reg.aa = true;
 			if (_selectedIndex == 3) Reg.aa = false;
-			if (_selectedIndex >= 4 && _selectedIndex <= 14) Reg.musicVolume = (_selectedIndex - 4) * 10;
-			if (_selectedIndex >= 15 && _selectedIndex <= 25) Reg.sfxVolume = (_selectedIndex - 15) * 10;
+			if (_selectedIndex >= 4 && _selectedIndex <= 14) Sm.musicVolume = (_selectedIndex - 4) * 10;
+			if (_selectedIndex >= 15 && _selectedIndex <= 25) Sm.sfxVolume = (_selectedIndex - 15) * 10;
 			//if (_selectedIndex >= 26 && _selectedIndex <= 35) Reg.brightness = (_selectedIndex - 25) * 10;
 			
 			setupValues();
@@ -121,8 +121,8 @@ class OptionsSubState extends MintSubState
 		_buttons[Reg.fullscreen? 0 : 1].down();
 		_buttons[Reg.aa ? 2 : 3].down();
 		
-		for (i in 0...Math.round(Reg.musicVolume / 10)) _buttons[_buttonIndexGroups[2][i]].down();
-		for (i in 0...Math.round(Reg.sfxVolume / 10)) _buttons[_buttonIndexGroups[3][i]].down();
+		for (i in 0...Math.round(Sm.musicVolume * 10)) _buttons[_buttonIndexGroups[2][i]].down();
+		for (i in 0...Math.round(Sm.sfxVolume * 10)) _buttons[_buttonIndexGroups[3][i]].down();
 		//for (i in 0...Math.round(Reg.brightness / 10)) _buttons[_buttonIndexGroups[4][i]].down();
 	}
 	

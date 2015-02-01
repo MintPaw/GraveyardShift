@@ -49,8 +49,6 @@ class Reg
 	public static var levelNumber:Int;
 	
 	public static var aa:Bool = true;
-	public static var musicVolume:Float = 80;
-	public static var sfxVolume:Float = 80;
 	public static var brightness:Float = 50;
 	public static var fullscreen:Bool = true;
 	public static var isDemo:Bool = false;

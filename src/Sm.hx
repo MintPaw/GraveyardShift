@@ -45,12 +45,35 @@ class Sm
 	public static var MENU_CLICK:String = "sound/effects/34-menu click.ogg";
 	public static var SELECTION_MOVE:String = "sound/effects/35-selection move.ogg";
 	
+	public static var musicVolume(default, set):Float = 80;
+	public static var sfxVolume(default, set):Float = 80;
+	
 	private static var _songChannel:SoundChannel;
 	private static var _effectChannel:SoundChannel;
 	
 	public function new()
 	{
 		
+	}
+	
+	public static function set_sfxVolume(vol:Float):Float
+	{
+		sfxVolume = vol / 100;
+		
+		var t:SoundTransform = new SoundTransform(sfxVolume, 0);
+		_effectChannel.soundTransform = t;
+		
+		return vol;
+	}
+	
+	public static function set_musicVolume(vol:Float):Float
+	{
+		musicVolume = vol / 100;
+		
+		var t:SoundTransform = new SoundTransform(musicVolume, 0);
+		_songChannel.soundTransform = t;
+		
+		return vol;
 	}
 	
 	public static function playSong(n:String, force:Bool = false):Void
