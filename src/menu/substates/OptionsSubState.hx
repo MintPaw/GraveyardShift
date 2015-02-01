@@ -110,7 +110,6 @@ class OptionsSubState extends MintSubState
 			if (_selectedIndex == 3) Reg.aa = false;
 			if (_selectedIndex >= 4 && _selectedIndex <= 14) Sm.musicVolume = (_selectedIndex - 4) * 10;
 			if (_selectedIndex >= 15 && _selectedIndex <= 25) Sm.sfxVolume = (_selectedIndex - 15) * 10;
-			//if (_selectedIndex >= 26 && _selectedIndex <= 35) Reg.brightness = (_selectedIndex - 25) * 10;
 			
 			setupValues();
 		}
@@ -123,7 +122,6 @@ class OptionsSubState extends MintSubState
 		
 		for (i in 0...Math.round(Sm.musicVolume * 10)) _buttons[_buttonIndexGroups[2][i]].down();
 		for (i in 0...Math.round(Sm.sfxVolume * 10)) _buttons[_buttonIndexGroups[3][i]].down();
-		//for (i in 0...Math.round(Reg.brightness / 10)) _buttons[_buttonIndexGroups[4][i]].down();
 	}
 	
 	private function setKey(groupIndex:Int, keycode:Int)
